@@ -12,7 +12,7 @@
         <div class="row justify-content-center my-2">
             <div class="col-md-8">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-center"><img src="https://via.placeholder.com/300.png/09f/fff" alt="..."
+                    <li class="list-group-item text-center"><img src="../../public/images/{{ $event->image }}" alt="..."
                             style="max-height: 400px; max-width: 400px;"></li>
                     <li class="list-group-item">Name: {{ $event->name }}</li>
                     <li class="list-group-item">Description: {{ $event->description }}</li>

@@ -26,8 +26,8 @@ class CreateEventsTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('owner')->references('id')->on('hosts');
-            $table->foreign('doorman')->references('id')->on('doormen');
+            $table->foreign('owner')->references('user_id')->on('hosts');
+            $table->foreign('doorman')->references('user_id')->on('doormen');
 
         });
     }

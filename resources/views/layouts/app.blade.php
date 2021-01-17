@@ -104,7 +104,7 @@
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                                     {{ __('Logout') }}
                                                 </a>
 
@@ -147,15 +147,15 @@
                 <div class="col-md-2 border border-dark bg-dark">
                     <!-- Side bar menu -->
                     <nav class="nav flex-column">
-                        <a class="nav-link text-light" aria-current="page" href="#">Dashboard</a>
-                        <a class="nav-link text-light" href="#">Create new event</a>
-                        <a class="nav-link text-light" href="#">Show my events</a>
                         @if (App\Models\Admin::where('user_id', Auth::user()->id)->first())
-                            <a class="nav-link text-light" href="#">Admin</a>
+                            <a class="nav-link text-light" href="/admin">Admin</a>
                         @elseif (App\Models\Host::where('user_id',Auth::user()->id)->first())
+                            <a class="nav-link text-light" aria-current="page" href="/host">Dashboard</a>
+                            <a class="nav-link text-light" href="/event/create">Create new event</a>
+                            <a class="nav-link text-light" href="#">Show my events</a>
                             <a class="nav-link text-light" href="#">Host</a>
                         @elseif (App\Models\Doorman::where('user_id',Auth::user()->id)->first())
-                            <a class="nav-link text-light" href="#">Doorman</a>
+                            <a class="nav-link text-light" href="/doorman">Doorman</a>
                         @endif
                     </nav>
                     <!-- End of Side bar -->

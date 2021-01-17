@@ -16,7 +16,7 @@
                     <div class="card mb-3 border" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="https://via.placeholder.com/300.png/09f/fff" alt="..."
+                                <img src="public/images/{{ $event->image }}" alt="..."
                                     style="max-height: 200px; max-width: 200px;">
                             </div>
                             <div class="col-md-8">

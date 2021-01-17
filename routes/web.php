@@ -24,7 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Event Routes
 Route::get('/host', [App\Http\Controllers\EventController::class, 'index'])->name('host_dashboard');
 Route::get('/event/create', [App\Http\Controllers\EventController::class, 'create'])->name('create_event');
-//store
+Route::post('/event/create', [App\Http\Controllers\EventController::class, 'store'])->name('store_event');
 Route::get('/event/show/{id}', [App\Http\Controllers\EventController::class, 'show'])->name('show_event');
 Route::get('/event/edit/{id}', [App\Http\Controllers\EventController::class, 'edit'])->name('edit_event');
 // update
