@@ -27,7 +27,8 @@ Route::get('/event/create', [App\Http\Controllers\EventController::class, 'creat
 Route::post('/event/create', [App\Http\Controllers\EventController::class, 'store'])->name('store_event');
 Route::get('/event/show/{id}', [App\Http\Controllers\EventController::class, 'show'])->name('show_event');
 Route::get('/event/edit/{id}', [App\Http\Controllers\EventController::class, 'edit'])->name('edit_event');
-// update
+Route::put('/event/edit/{id}', [App\Http\Controllers\EventController::class, 'update'])->name('update_event');
+Route::delete('/event/delete/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->name('delete_event');
 // destroy
 
 /*

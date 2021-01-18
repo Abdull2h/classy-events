@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="description" class="form-label">Event Description</label>
-                        <textarea type="text" class="form-control" id="description" name="description"></textarea>
+                        <input type="text" class="form-control" id="description" name="description">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="date" class="form-label">Date</label>

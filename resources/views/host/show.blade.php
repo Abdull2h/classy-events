@@ -19,6 +19,9 @@
                     <li class="list-group-item">Location: {{ $event->location }}</li>
                     <li class="list-group-item">Date: {{ $event->date }}</li>
                     <li class="list-group-item">Time: {{ $event->time }}</li>
+                    <li class="list-group-item"><a href="/event/edit/{{ $event->id }}">
+                            <button class="btn btn-outline-warning btn-sm rounded pill">Edit</button>
+                        </a></li>
                 </ul>
             </div>
         </div>

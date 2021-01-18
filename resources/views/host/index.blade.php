@@ -2,29 +2,37 @@
 
 @section('content')
 
-    <div class="container my-2 border justify-content-center">
+    <div class="container my-2 justify-content-center">
         <!-- First Row -->
-        <div class="row justify-content-center">
-            <div class="h4">Current Events</div>
+        <div class="row justify-content-center mt-2">
+            <div class="h4 border border-primary p-2 rounded-pill">Today Events</div>
         </div>
 
         <!-- Second Row -->
-        <div class="row justify-content-center">
-            <div class="col-md-8 border border-primary justify-content-center">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-12">
                 <!-- Card -->
-                @foreach ($my_events as $event)
-                    <div class="card mb-3 border" style="max-width: 540px;">
+                @foreach ($today_events as $t_event)
+                    <div class="card mb-3 mx-auto border" style="max-width: 540px; max-height: 500px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="public/images/{{ $event->image }}" alt="..."
+                                <img src="public/images/{{ $t_event->image }}" alt="..."
                                     style="max-height: 200px; max-width: 200px;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $event->name }}</h5>
-                                    <p class="card-text">{{ $event->description }}</p>
-                                    <p class="card-text"><small class="text-muted">{{ $event->date }} at
-                                            {{ $event->time }}</small></p>
+                                    <h5 class="card-title"> {{ $t_event->name }}
+                                        <span class="badge rounded-pill bg-primary text-white ml-5">
+                                            <small>Today</small></span>
+                                    </h5>
+                                    <p class="card-text">{{ $t_event->description }}</p>
+                                    <p class="card-text"><small class="text-muted">{{ $t_event->date }} at
+                                            {{ $t_event->time }}</small></p>
+                                    <div class="card-link d-flex justify-content-end">
+                                        <a href="/event/show/{{ $t_event->id }}">
+                                            <div class="btn btn-outline-primary btn-sm rounded-pill">More</div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -34,5 +42,93 @@
             </div>
         </div>
         <!-- End of second row -->
+
+        <div class="w-75 mx-auto">
+            <hr class="bg-info">
+        </div>
+
+        <!-- Third Row -->
+        <div class="row justify-content-center mt-2">
+            <div class="h4 border border-success p-2 rounded-pill">Future Events</div>
+        </div>
+
+        <!-- Fourth Row -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-12">
+                <!-- Card -->
+                @foreach ($future_events as $f_event)
+                    <div class="card mb-3 mx-auto border" style="max-width: 540px; max-height: 500px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="public/images/{{ $f_event->image }}" alt="..."
+                                    style="max-height: 200px; max-width: 200px;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"> {{ $f_event->name }}
+                                        <span class="badge rounded-pill bg-success text-white ml-5">
+                                            <small>Cooming</small></span>
+                                    </h5>
+                                    <p class="card-text">{{ $f_event->description }}</p>
+                                    <p class="card-text"><small class="text-muted">{{ $f_event->date }} at
+                                            {{ $f_event->time }}</small></p>
+                                    <div class="card-link d-flex justify-content-end">
+                                        <a href="/event/show/{{ $f_event->id }}">
+                                            <div class="btn btn-outline-primary btn-sm rounded-pill">More</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <!-- End of Card -->
+            </div>
+        </div>
+        <!-- End of Fourth row -->
+
+        <div class="w-75 mx-auto">
+            <hr class="bg-info">
+        </div>
+
+        <!-- Fifth Row -->
+        <div class="row justify-content-center">
+            <div class="h4 border border-danger p-2 rounded-pill">Past Events</div>
+        </div>
+
+        <!-- Sixth Row -->
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <!-- Card -->
+                @foreach ($past_events as $p_event)
+                    <div class="card mb-3 mx-auto border" style="max-width: 540px; max-height: 500px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="public/images/{{ $p_event->image }}" alt="..."
+                                    style="max-height: 200px; max-width: 200px;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"> {{ $p_event->name }}
+                                        <span class="badge rounded-pill bg-danger text-white ml-5">
+                                            <small>Ended</small></span>
+                                    </h5>
+                                    <p class="card-text">{{ $p_event->description }}</p>
+                                    <p class="card-text"><small class="text-muted">{{ $p_event->date }} at
+                                            {{ $p_event->time }}</small></p>
+                                    <div class="card-link d-flex justify-content-end">
+                                        <a href="/event/show/{{ $p_event->id }}">
+                                            <div class="btn btn-outline-primary btn-sm rounded-pill">More</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <!-- End of Card -->
+            </div>
+        </div>
+        <!-- End of Sixth row -->
     </div>
 @endsection

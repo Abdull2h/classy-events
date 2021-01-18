@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use auth;
+use DateTime;
 use App\Models\Event;
 use App\Models\Attendant;
 use App\Models\Doorman;
@@ -17,8 +18,16 @@ class EventController extends Controller
      */
     public function index()
     {
-        $my_events = Event::where('owner',Auth::user()->id)->get();
-        return view('host.index',compact('my_events'));
+        //$my_events = Event::where('owner',Auth::user()->id)->get();
+
+        $date = new DateTime();
+        $x = $date->format('Y-m-d');
+
+        $future_events = Event::where('Date','>',$x)->get();
+        $today_events = Event::where('Date','=',$x)->get();
+        $past_events = Event::where('Date','<',$x)->get();
+
+        return view('host.index',compact('future_events','today_events', 'past_events'));
     }
 
     /**
@@ -43,7 +52,6 @@ class EventController extends Controller
             $request->validate([
             'name' => 'required|max:200',
             'description' => 'required|max:500',
-            'description' => 'required|max:200',
             'date' => 'required|max:200',
             'time' => 'required|max:200',
             'location' => 'required|max:200',
@@ -101,7 +109,10 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        return view('host.edit_event',compact('id'));
+        $event = Event::where('id',$id)->first();
+        $doormen = Doorman::get();
+
+        return view('host.edit_event',compact('event','doormen'));
     }
 
     /**
@@ -113,7 +124,41 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:200',
+            'description' => 'required|max:500',
+            'date' => 'required|max:200',
+            'time' => 'required|max:200',
+            'location' => 'required|max:200',
+            'doorman' => 'required|max:200',
+            'image' => 'image|mimes:jpeg,png|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image') ;
+            $ext = $file->getClientOriginalExtension() ;
+            $filename = 'image' . '_' . time() . '.' . $ext ;
+            $file->storeAs('public/images', $filename);
+
+        } else {
+
+            $filename = Event::where('id',$id)->first()->image;
+        }
+
+        $event = Event::find($id);
+        $event->name = $request->name;
+        $event->description = $request->description;
+        $event->date = $request->date;
+        $event->time = $request->time;
+        $event->location = $request->location;
+        $event->doorman = $request->doorman;
+        $event->image = $filename;
+        $event->owner = Auth()->user()->id;
+
+
+        $event->save();
+
+        return redirect('/host');
     }
 
     /**
@@ -124,6 +169,9 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect('/host');
     }
 }
