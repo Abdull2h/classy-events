@@ -20,14 +20,24 @@ class EventController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $user = Auth()->user()->id;
+=======
+        //$my_events = Event::where('owner',Auth::user()->id)->get();
+>>>>>>> 9d4c59209a5194846d78f186f4dbe93a53c7dc84
 
         $date = new DateTime();
         $x = $date->format('Y-m-d');
 
+<<<<<<< HEAD
         $future_events = Event::where('owner',$user)->where('Date','>',$x)->get();
         $today_events = Event::where('owner',$user)->where('Date','=',$x)->get();
         $past_events = Event::where('owner',$user)->where('Date','<',$x)->get();
+=======
+        $future_events = Event::where('Date','>',$x)->get();
+        $today_events = Event::where('Date','=',$x)->get();
+        $past_events = Event::where('Date','<',$x)->get();
+>>>>>>> 9d4c59209a5194846d78f186f4dbe93a53c7dc84
 
         return view('host.index',compact('future_events','today_events', 'past_events'));
     }
@@ -130,6 +140,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
+<<<<<<< HEAD
 
         $user = Auth()->user()->id;
         $event = Event::where('id',$id)->first();
@@ -144,6 +155,12 @@ class EventController extends Controller
             return "no";
         }
 
+=======
+        $event = Event::where('id',$id)->first();
+        $doormen = Doorman::get();
+
+        return view('host.edit_event',compact('event','doormen'));
+>>>>>>> 9d4c59209a5194846d78f186f4dbe93a53c7dc84
     }
 
     /**
@@ -200,6 +217,7 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
+<<<<<<< HEAD
         $user = Auth()->user()->id;
         $event = Event::where('id',$id)->first();
 
@@ -216,5 +234,11 @@ class EventController extends Controller
 
         }
 
+=======
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect('/host');
+>>>>>>> 9d4c59209a5194846d78f186f4dbe93a53c7dc84
     }
 }
