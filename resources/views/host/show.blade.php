@@ -22,12 +22,9 @@
                     <li class="list-group-item"><a href="/event/edit/{{ $event->id }}">
                             <button class="btn btn-outline-warning btn-sm rounded pill">Edit</button>
                         </a></li>
-<<<<<<< HEAD
                     <li class="list-group-item"><a href="/event/show/{{ $event->id }}/add_invite">
                             <button class="btn btn-outline-dark btn-sm rounded pill">Add Attendant</button>
                         </a></li>
-=======
->>>>>>> 9d4c59209a5194846d78f186f4dbe93a53c7dc84
                 </ul>
             </div>
         </div>
