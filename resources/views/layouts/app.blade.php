@@ -104,7 +104,7 @@
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                     {{ __('Logout') }}
                                                 </a>
 
@@ -130,9 +130,10 @@
                         <div class="h4">Welcome {{ Auth::user()->name }}</div>
                     </div>
                     <div class="col-md-4 d-flex flex-column bd-highlight px-5 py-2">
-                        <span type="button"
-                            class="btn btn-sm btn-light text-primary bd-highlight rounded-pill p-2 mb-2">Create New
-                            Event</span>
+                        <a class="align-middle" href="/event/create"><span type="button"
+                                class="btn btn-sm btn-light text-primary bd-highlight rounded-pill p-2 mb-2 w-100">Create
+                                New
+                                Event</span></a>
                     </div>
                 </div>
             </div>

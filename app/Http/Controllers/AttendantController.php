@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
+use App\Models\Attendant;
+use App\Models\Admin;
+use App\Models\Host;
+use App\Models\Doorman;
+
+
 
 class AttendantController extends Controller
 {
@@ -21,9 +28,10 @@ class AttendantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $event = Event::where('id',$id)->first();
+        return view('host.create_invite', compact('event'));
     }
 
     /**
@@ -32,9 +40,29 @@ class AttendantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+            $request->validate([
+            'name' => 'required|max:200',
+            'email' => 'required|max:500',
+            'seats' => 'required|max:200',
+        ]);
+
+            $event = Event::where('id',$id)->first();
+
+            $attendant = new Attendant();
+            $attendant->name = $request->name;
+            $attendant->email = $request->email;
+            $attendant->seats = $request->seats;
+            $attendant->code = rand(0,999999);
+            $attendant->event_id = $id;
+
+            $attendant->save();
+
+            return redirect('/event/show/'.$id);
+
+
+
     }
 
     /**

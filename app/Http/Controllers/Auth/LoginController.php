@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use auth;
+use App\Models\Admin;
+use App\Models\Host;
+use App\Models\Doorman;
+
 
 class LoginController extends Controller
 {
@@ -26,8 +31,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo() {
 
+        $user = Auth()->user()->id;
+
+        if ( Host::where('user_id',$user)->first() ) {
+            return '/host';
+
+        } elseif ( Admin::where('user_id',$user)->first() ) {
+            return '/event/show/1';
+
+        } elseif ( Doorman::where('user_id',$user)->first() ) {
+            return '/doorman';
+        }
+
+    }
     /**
      * Create a new controller instance.
      *

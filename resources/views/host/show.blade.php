@@ -19,6 +19,12 @@
                     <li class="list-group-item">Location: {{ $event->location }}</li>
                     <li class="list-group-item">Date: {{ $event->date }}</li>
                     <li class="list-group-item">Time: {{ $event->time }}</li>
+                    <li class="list-group-item"><a href="/event/edit/{{ $event->id }}">
+                            <button class="btn btn-outline-warning btn-sm rounded pill">Edit</button>
+                        </a></li>
+                    <li class="list-group-item"><a href="/event/show/{{ $event->id }}/add_invite">
+                            <button class="btn btn-outline-dark btn-sm rounded pill">Add Attendant</button>
+                        </a></li>
                 </ul>
             </div>
         </div>
@@ -47,7 +53,7 @@
                                 <td>{{ $attendant->name }}</td>
                                 <td>{{ $attendant->email }}</td>
                                 <td>{{ $attendant->seats }}</td>
-                                <td>{{ $attendant->code }}</td>
+                                <td>{{ str_pad($attendant->code, 6, '0', STR_PAD_LEFT) }}</td>
                                 <td><button class="btn btn-sm btn-primary rounded-pill">Edit</button></td>
                             </tr>
                         @endforeach

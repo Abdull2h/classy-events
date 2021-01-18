@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use auth;
+use DateTime;
+use App\Models\Event;
+use App\Models\Attendant;
+use App\Models\Doorman;
 
 class DoormanController extends Controller
 {
@@ -13,7 +18,17 @@ class DoormanController extends Controller
      */
     public function index()
     {
-        //
+
+        $user = Auth()->user()->id;
+
+        $date = new DateTime();
+        $x = $date->format('Y-m-d');
+
+        $future_events = Event::where('doorman',$user)->where('Date','>',$x)->get();
+        $today_events = Event::where('doorman',$user)->where('Date','=',$x)->get();
+        $past_events = Event::where('doorman',$user)->where('Date','<',$x)->get();
+
+        return view('doorman.index',compact('future_events','today_events', 'past_events'));
     }
 
     /**
