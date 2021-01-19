@@ -41,7 +41,7 @@ class EventController extends Controller
     {
         $user = Auth()->user()->id;
 
-        if ( Host::where('user_id',$user)->first() || Admin::where('user_id',$user)->first() ) {
+        if ( Host::where('user_id',$user)->first() ) {
 
             $doormen = Doorman::get();
             return view('host.create_event',compact('doormen'));

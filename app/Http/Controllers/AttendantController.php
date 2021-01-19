@@ -30,8 +30,17 @@ class AttendantController extends Controller
      */
     public function create($id)
     {
+        $user = Auth()->user()->id;
         $event = Event::where('id',$id)->first();
-        return view('host.create_invite', compact('event'));
+
+        if ( $event->owner == $user) {
+
+            return view('host.create_invite', compact('event'));
+
+        } else {
+            return 'NO';
+        }
+
     }
 
     /**
@@ -82,9 +91,21 @@ class AttendantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $aid)
     {
-        //
+
+        $user = Auth()->user()->id;
+        $event = Event::where('id',$id)->first();
+
+        if ( $event->owner == $user || Admin::where('user_id',$user)->first() ) {
+
+            $attendant = Attendant::where('event_id',$id)->where('id',$aid)->first();
+            return view('host.edit_invite', compact('attendant'));
+
+        } else {
+            return 'NO';
+        }
+
     }
 
     /**
@@ -94,9 +115,25 @@ class AttendantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $aid)
     {
-        //
+            $request->validate([
+            'name' => 'required|max:200',
+            'email' => 'required|max:500',
+            'seats' => 'required|max:200',
+        ]);
+
+            $event = Event::where('id',$id)->first();
+
+            $attendant = Attendant::find($aid);
+            $attendant->name = $request->name;
+            $attendant->email = $request->email;
+            $attendant->seats = $request->seats;
+
+            $attendant->save();
+
+            return redirect('/event/show/'.$id);
+
     }
 
     /**
@@ -105,8 +142,22 @@ class AttendantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $aid)
     {
-        //
+
+        $user = Auth()->user()->id;
+        $event = Event::where('id',$id)->first();
+
+        if ( $event->owner == $user || Admin::where('user_id',$user)->first() ) {
+
+            $attendant = Attendant::find($aid);
+            $attendant->delete();
+
+            return redirect('/event/show/'.$id);
+
+        } else {
+            return 'NO';
+        }
+
     }
 }

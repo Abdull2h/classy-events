@@ -54,7 +54,9 @@
                                 <td>{{ $attendant->email }}</td>
                                 <td>{{ $attendant->seats }}</td>
                                 <td>{{ str_pad($attendant->code, 6, '0', STR_PAD_LEFT) }}</td>
-                                <td><button class="btn btn-sm btn-primary rounded-pill">Edit</button></td>
+                                <td><a class="btn btn-sm btn-primary rounded-pill"
+                                        href="/event/show/{{ $attendant->event_id }}/edit_invite/{{ $attendant->id }}">Edit</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
