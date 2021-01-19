@@ -30,25 +30,16 @@ Route::get('/event/edit/{id}', [App\Http\Controllers\EventController::class, 'ed
 Route::put('/event/edit/{id}', [App\Http\Controllers\EventController::class, 'update'])->name('update_event');
 Route::delete('/event/delete/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->name('delete_event');
 
-// Guard Routes
+// Doorman Routes
 Route::get('/doorman', [App\Http\Controllers\DoormanController::class, 'index'])->name('doorman_dashboard');
 //Route::get('/event/show/{id}', [App\Http\Controllers\DoormanController::class, 'show'])->name('show_event');
 
 // Attendant Routes
 Route::get('/event/show/{id}/add_invite', [App\Http\Controllers\AttendantController::class, 'create'])->name('create_invite');
 Route::post('event/show/{id}/add_invite', [App\Http\Controllers\AttendantController::class, 'store'])->name('store_invite');
-
-/*
-|    Create(X) -> if user Host + own the event
-|    edit(X) -> if user Host + own the event
-|    delete(X) -> if user Host + own the event
-*/
-
-
-/*
-|    index -> all events guarded by user (guard_dashboard)
-|    show -> single event that guarded by user
-*/
+Route::get('/event/show/{id}/edit_invite/{aid}', [App\Http\Controllers\AttendantController::class, 'edit'])->name('edit_invite');
+Route::put('/event/show/{id}/edit_invite/{aid}', [App\Http\Controllers\AttendantController::class, 'update'])->name('update_invite');
+Route::delete('/event/show/{id}/delete_invite/{aid}', [App\Http\Controllers\AttendantController::class, 'destroy'])->name('delete_invite');
 
 // Admin Routes
 /*

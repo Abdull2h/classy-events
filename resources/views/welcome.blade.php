@@ -103,7 +103,7 @@
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                     {{ __('Logout') }}
                                                 </a>
 
@@ -132,10 +132,10 @@
                         </div>
                     </div>
                     <div class="col-md-4 d-flex flex-column bd-highlight px-5 py-2">
-                        <span type="button"
-                            class="btn btn-sm btn-light text-primary bd-highlight rounded-pill p-2 mb-2">Sign
-                            in</span>
-                        <span type="button" class="btn btn-sm btn-outline-light rounded-pill p-2">Log in</span>
+                        <a href="{{ route('register') }}"><span type="button"
+                                class="btn btn-sm btn-light text-primary bd-highlight rounded-pill p-2 mb-2 w-100">Register</span></a>
+                        <a href="{{ route('login') }}"><span type="button"
+                                class="btn btn-sm btn-outline-light rounded-pill p-2 mb-2 w-100">Login</span></a>
 
                     </div>
                 </div>
@@ -193,6 +193,10 @@
             </div>
         </section>
         <!-- End of features section -->
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+        </div>
     </div>
     <!-- End Of App -->
 </body>
