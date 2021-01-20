@@ -33,7 +33,7 @@ class AttendantController extends Controller
         $user = Auth()->user()->id;
         $event = Event::where('id',$id)->first();
 
-        if ( $event->owner == $user) {
+        if ( $event->owner == $user ) {
 
             return view('host.create_invite', compact('event'));
 

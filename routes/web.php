@@ -42,6 +42,7 @@ Route::put('/event/show/{id}/edit_invite/{aid}', [App\Http\Controllers\Attendant
 Route::delete('/event/show/{id}/delete_invite/{aid}', [App\Http\Controllers\AttendantController::class, 'destroy'])->name('delete_invite');
 
 // Admin Routes
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_dashboard');
 /*
 |   index -> all events (admin_dashboard)
 |   show -> single event

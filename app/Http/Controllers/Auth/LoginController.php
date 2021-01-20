@@ -40,7 +40,7 @@ class LoginController extends Controller
             return '/host';
 
         } elseif ( Admin::where('user_id',$user)->first() ) {
-            return '/event/show/1';
+            return '/admin';
 
         } elseif ( Doorman::where('user_id',$user)->first() ) {
             return '/doorman';

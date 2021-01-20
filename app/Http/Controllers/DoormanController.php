@@ -21,14 +21,22 @@ class DoormanController extends Controller
 
         $user = Auth()->user()->id;
 
-        $date = new DateTime();
-        $x = $date->format('Y-m-d');
+        if ( $user = Doorman::where('user_id',$user)->first() ) {
 
-        $future_events = Event::where('doorman',$user)->where('Date','>',$x)->get();
-        $today_events = Event::where('doorman',$user)->where('Date','=',$x)->get();
-        $past_events = Event::where('doorman',$user)->where('Date','<',$x)->get();
+            $now = new DateTime();
+            $date = $now->format('Y-m-d');
 
-        return view('doorman.index',compact('future_events','today_events', 'past_events'));
+            $future_events = Event::where('doorman',$user)->where('Date','>',$date)->get();
+            $today_events = Event::where('doorman',$user)->where('Date','=',$date)->get();
+            $past_events = Event::where('doorman',$user)->where('Date','<',$date)->get();
+
+            return view('doorman.index',compact('future_events','today_events', 'past_events'));
+
+        } else {
+
+            return "Error";
+        }
+
     }
 
     /**
