@@ -21,6 +21,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://unpkg.com/pattern.css" rel="stylesheet">
 
+    <!-- JQuery test -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 
 
     <style>
@@ -104,7 +108,7 @@
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                     {{ __('Logout') }}
                                                 </a>
 
@@ -149,14 +153,12 @@
                     <!-- Side bar menu -->
                     <nav class="nav flex-column">
                         @if (App\Models\Admin::where('user_id', Auth::user()->id)->first())
-                            <a class="nav-link text-light" href="/admin">Admin</a>
+                            <a class="nav-link text-light" href="/admin">Admin Dashboard</a>
                         @elseif (App\Models\Host::where('user_id',Auth::user()->id)->first())
-                            <a class="nav-link text-light" aria-current="page" href="/host">Dashboard</a>
+                            <a class="nav-link text-light" aria-current="page" href="/host">Host Dashboard</a>
                             <a class="nav-link text-light" href="/event/create">Create new event</a>
-                            <a class="nav-link text-light" href="#">Show my events</a>
-                            <a class="nav-link text-light" href="#">Host</a>
                         @elseif (App\Models\Doorman::where('user_id',Auth::user()->id)->first())
-                            <a class="nav-link text-light" href="/doorman">Doorman</a>
+                            <a class="nav-link text-light" href="/doorman">Doorman Dashboard</a>
                         @endif
                     </nav>
                     <!-- End of Side bar -->

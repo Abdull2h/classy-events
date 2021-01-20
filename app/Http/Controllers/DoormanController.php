@@ -21,7 +21,7 @@ class DoormanController extends Controller
 
         $user = Auth()->user()->id;
 
-        if ( $user = Doorman::where('user_id',$user)->first() ) {
+        if ( Doorman::where('user_id',$user)->first() ) {
 
             $now = new DateTime();
             $date = $now->format('Y-m-d');

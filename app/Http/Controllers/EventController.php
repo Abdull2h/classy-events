@@ -20,16 +20,15 @@ class EventController extends Controller
      */
     public function index()
     {
-        $user = Auth()->user()->id;
+        $user = Auth()->user();
 
-        if ( $user = Host::where('user_id',$user)->first() ) {
-
+        if ( Event::where('owner',$user->id)->first() ) {
             $now = new DateTime();
             $date = $now->format('Y-m-d');
 
-            $future_events = Event::where('owner',$user)->where('Date','>',$date)->get();
-            $today_events = Event::where('owner',$user)->where('Date','=',$date)->get();
-            $past_events = Event::where('owner',$user)->where('Date','<',$date)->get();
+            $future_events = Event::where('owner',$user->id)->where('Date','>',$date)->get();
+            $today_events = Event::where('owner',$user->id)->where('Date','=',$date)->get();
+            $past_events = Event::where('owner',$user->id)->where('Date','<',$date)->get();
 
             return view('host.index',compact('future_events','today_events', 'past_events'));
 

@@ -37,6 +37,10 @@
         <!-- Fourth row -->
         <div class="row justify-content-center my-2">
             <div class="col-md-8">
+                <div class="row m-2 align-items-end">
+                    <label for="search" class="form-label m-2">Find Attendant</label>
+                    <input type="text" id="search" class="form-control w-50 mx-auto" placeholder="Search..">
+                </div>
                 <table class="table table-hover" style="width:100%">
                     <thead class="table-dark">
                         <tr>
@@ -47,7 +51,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="table">
                         @foreach ($attendants as $attendant)
                             <tr>
                                 <td>{{ $attendant->name }}</td>
@@ -74,4 +78,16 @@
 
 
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#table tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+    </script>
 @endsection
