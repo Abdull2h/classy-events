@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use auth;
 use DateTime;
+use Mail;
 use App\Models\Event;
 use App\Models\Attendant;
 use App\Models\Admin;
 use App\Models\Host;
 use App\Models\Doorman;
+use App\Mail\SendInvitation;
 
 class EventController extends Controller
 {
@@ -223,6 +225,18 @@ class EventController extends Controller
             dd("no");
 
         }
+
+    }
+
+    public function send_invitation ($id)
+    {
+        $event = Event::where('id',$id)->first();
+        $recipints = Attendant::where('event_id',$id)->get();
+
+        foreach ($recipints as $recipint) {
+        Mail::to($recipint)->send(new SendInvitation($event,$recipint));
+        }
+        return redirect('/event/show/'.$id);
 
     }
 }

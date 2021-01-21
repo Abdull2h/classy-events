@@ -29,6 +29,7 @@ Route::get('/event/show/{id}', [App\Http\Controllers\EventController::class, 'sh
 Route::get('/event/edit/{id}', [App\Http\Controllers\EventController::class, 'edit'])->name('edit_event');
 Route::put('/event/edit/{id}', [App\Http\Controllers\EventController::class, 'update'])->name('update_event');
 Route::delete('/event/delete/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->name('delete_event');
+Route::get('/event/show/{id}/send_invitation', [App\Http\Controllers\EventController::class, 'send_invitation'])->name('send_invitation');
 
 // Doorman Routes
 Route::get('/doorman', [App\Http\Controllers\DoormanController::class, 'index'])->name('doorman_dashboard');

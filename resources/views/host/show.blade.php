@@ -22,8 +22,11 @@
                     <li class="list-group-item"><a href="/event/edit/{{ $event->id }}">
                             <button class="btn btn-outline-warning btn-sm rounded pill">Edit</button>
                         </a></li>
-                    <li class="list-group-item"><a href="/event/show/{{ $event->id }}/add_invite">
+                        <li class="list-group-item"><a href="/event/show/{{ $event->id }}/add_invite">
                             <button class="btn btn-outline-dark btn-sm rounded pill">Add Attendant</button>
+                        </a></li>
+                        <li class="list-group-item"><a href="/event/show/{{ $event->id }}/send_invitation">
+                            <button class="btn btn-outline-primary btn-sm rounded pill">Send Invitation to Attendants</button>
                         </a></li>
                 </ul>
             </div>

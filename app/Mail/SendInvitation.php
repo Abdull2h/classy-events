@@ -16,9 +16,14 @@ class SendInvitation extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $event;
+    public $recipint;
+    public function __construct($event, $recipint)
     {
-        //
+        $this->event = $event;
+        $this->recipint = $recipint;
+
     }
 
     /**
@@ -28,6 +33,6 @@ class SendInvitation extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.invitation')->subject('Classy Events - invite');
+        return $this->markdown('mail.invitation')->subject('Classy Events - invite');
     }
 }

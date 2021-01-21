@@ -1,10 +1,27 @@
-Dear USER_NAME,
+@component('mail::message')
+Dear {{ $recipint->name }}
 
-You are invited to EVENT_NAME.
-Event Date: EVENT_DATE. at EVENT_TIME.
-Event Location: EVENT_LOCATION.
-Invitation Code = EVENT_CODE
+# Event Detailes
 
-Event Description: EVENT_DESCRIPTION
+@component('mail::table')
+| Event | Detailes |
+| ------ | ------ |
+| Name |  {{ $event->name }} |
+| Date |  {{ $event->date }} |
+| Time |  {{ $event->time }} |
+| Location |  {{ $event->location }} |
+| Description |  {{ $event->description }} |
+| Image |  http://classy-events.test/public/images/{{ $event->image }} |
+| Owner Name |  {{ App\Models\User::where('id', $event->owner)->first()->name }} |
+| Owner Email |  {{ App\Models\User::where('id', $event->owner)->first()->email }} |
+@endcomponent
 
-EVENT_OWNER sent you invitation using Classy Events.
+
+# Invitation Detailes
++ ## Invitation Code: {{ $recipint->code }}
++ ## Seats: {{ $recipint->seats }}
+
+
+Thanks,<br>
+{{ config('app.name') }}
+@endcomponent
