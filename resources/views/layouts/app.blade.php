@@ -14,23 +14,32 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://unpkg.com/pattern.css" rel="stylesheet">
 
-    <!-- JQuery test -->
+    <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 
 
     <style>
-        #app {
+        body {
             background-image: radial-gradient(circle at center center, rgba(217, 217, 217, 0.05) 0%, rgba(217, 217, 217, 0.05) 15%, rgba(197, 197, 197, 0.05) 15%, rgba(197, 197, 197, 0.05) 34%, rgba(178, 178, 178, 0.05) 34%, rgba(178, 178, 178, 0.05) 51%, rgba(237, 237, 237, 0.05) 51%, rgba(237, 237, 237, 0.05) 75%, rgba(138, 138, 138, 0.05) 75%, rgba(138, 138, 138, 0.05) 89%, rgba(158, 158, 158, 0.05) 89%, rgba(158, 158, 158, 0.05) 100%), radial-gradient(circle at center center, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 6%, rgb(255, 255, 255) 6%, rgb(255, 255, 255) 12%, rgb(255, 255, 255) 12%, rgb(255, 255, 255) 31%, rgb(255, 255, 255) 31%, rgb(255, 255, 255) 92%, rgb(255, 255, 255) 92%, rgb(255, 255, 255) 97%, rgb(255, 255, 255) 97%, rgb(255, 255, 255) 100%);
             background-size: 42px 42px;
+            font-family: 'Ubuntu', sans-serif;
+            height: 100%;
+            overflow-x: hidden;
+            overscroll-behavior: none;
+
+        }
+
+        .bg-b {
+            background-image: repeating-linear-gradient(45deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(0deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(135deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(90deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), linear-gradient(90deg, rgb(17, 17, 17), rgb(66, 66, 66));
         }
 
         .header {
@@ -61,131 +70,98 @@
 
 <body>
     <div id="app">
-        <!-- HEADER -->
-        <section class="header">
-            <!-- First row = Navbar -->
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-md navbar-dark transparent">
-                        <div class="container">
-                            <a class="navbar-brand" href=@features>
-                                {{ config('app.name', 'Laravel') }}
-                            </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
+        <!-- First Row -->
+        <div class="row">
+            <!-- Navbar -->
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md transparent navbar-dark bg-b">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            {{ config('app.name', 'Laravel') }}
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <!-- Left Side Of Navbar -->
-                                <ul class="navbar-nav mr-auto">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <!-- Left Side Of Navbar -->
+                            <ul class="navbar-nav mr-auto ml-5">
+                                <li class="nav-item text-light mx-3">Welcome
+                                    {{ auth()->user()->name }}
+                                </li>
+                                @if (App\Models\Admin::where('user_id', Auth::user()->id)->first())
+                                    <li class="nav-item text-light mx-3">Your Role is Admin</li>
+                                @elseif (App\Models\Host::where('user_id', Auth::user()->id)->first())
+                                    <li class="nav-item text-light mx-3">Your Role is Host</li>
+                                @elseif (App\Models\Doorman::where('user_id', Auth::user()->id)->first())
+                                    <li class="nav-item text-light mx-3">Your Role is Doorman</li>
+                                @endif
+                            </ul>
 
-                                </ul>
-
-                                <!-- Right Side Of Navbar -->
-                                <ul class="navbar-nav ml-auto">
-                                    <!-- Authentication Links -->
-                                    @guest
-                                        @if (Route::has('login'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                            </li>
-                                        @endif
-
-                                        @if (Route::has('register'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                            </li>
-                                        @endif
-                                    @else
-                                        <li class="nav-item dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                {{ Auth::user()->name }}
-                                            </a>
-
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </div>
-                                        </li>
-                                    @endguest
-                                </ul>
-                            </div>
+                            <!-- Right Side Of Navbar -->
+                            <ul class="navbar-nav ml-auto">
+                                <li><a class="btn btn-outline-danger rounded-pill" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a></li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </ul>
                         </div>
-                    </nav>
-                </div>
-            </div>
-            <!-- End of First row-->
-
-            <!-- Second row -->
-            <div class="container py-3">
-                <div class="row text-light text-center justify-content-center align-items-center mt-2">
-                    <div class="col-md-4 d-flex flex-column bd-highlight px-5 py-2">
-                        <div class="h4">Welcome {{ Auth::user()->name }}</div>
                     </div>
-                    <div class="col-md-4 d-flex flex-column bd-highlight px-5 py-2">
-                        <a class="align-middle" href="/event/create"><span type="button"
-                                class="btn btn-sm btn-light text-primary bd-highlight rounded-pill p-2 mb-2 w-100">Create
-                                New
-                                Event</span></a>
-                    </div>
-                </div>
+                </nav>
             </div>
-            <!-- End Of Second Row -->
-        </section>
-        <!-- End Of Header Section -->
+        </div>
+        <!-- End of First row-->
 
         <div class="container-fluid">
-            <!-- First row -->
+
+            <!-- Second Row -->
             <div class="row">
-                <!-- Left Col -->
-                <div class="col-md-2 border border-dark bg-dark">
+                <!-- Left Side (Sidebar)-->
+                <div class="col-md-2 bg-dark bg-b">
                     <!-- Side bar menu -->
                     <nav class="nav flex-column">
+                        <hr class="bg-info w-100">
                         @if (App\Models\Admin::where('user_id', Auth::user()->id)->first())
-                            <a class="nav-link text-light" href="/admin">Admin Dashboard</a>
+                            <a class="nav-link text-light" href="/admin">Dashboard</a>
+
                         @elseif (App\Models\Host::where('user_id',Auth::user()->id)->first())
-                            <a class="nav-link text-light" aria-current="page" href="/host">Host Dashboard</a>
+                            <a class="nav-link text-light" aria-current="page" href="/host">Dashboard</a>
+                            <hr class="bg-info w-100">
+
                             <a class="nav-link text-light" href="/event/create">Create new event</a>
+
                         @elseif (App\Models\Doorman::where('user_id',Auth::user()->id)->first())
-                            <a class="nav-link text-light" href="/doorman">Doorman Dashboard</a>
+                            <a class="nav-link text-light" href="/doorman">Dashboard</a>
+
                         @endif
+                        <hr class="bg-info w-100">
                     </nav>
-                    <!-- End of Side bar -->
                 </div>
+                <!-- End of Left Side -->
 
-
-                <!-- Right Col -->
-                <div class="col-md-10 border border-dark">
-                    <!-- Content section -->
+                <!-- Right Side (Content)-->
+                <div class="col-md-10 mt-3 mb-5" style="min-height: 500px">
                     @yield('content')
-                    <!-- End of Content -->
                 </div>
             </div>
-            <!-- End of First row -->
+            <!-- End of Second Row -->
 
-
-            <!-- Second row -->
-            <!-- End of Second row -->
 
         </div>
+        <!-- End of container -->
 
-
-
-
-
+        <nav class="navbar fixed-bottom navbar-light bg-b mt-auto">
+            <div class="container-fluid justify-content-center">
+                <small class="nav-item text-light">Copyright &#169; 2021 Classy Events</small>
+            </div>
+        </nav>
     </div>
-    <!-- End Of App -->
-</body>
 
-</html>
+
+    <!-- End of #App -->
