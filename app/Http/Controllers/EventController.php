@@ -230,13 +230,26 @@ class EventController extends Controller
 
     public function send_invitation ($id)
     {
+        $user = Auth()->user()->id;
         $event = Event::where('id',$id)->first();
+
+        if ( $event->owner == $user ) {
+
         $recipints = Attendant::where('event_id',$id)->get();
 
         foreach ($recipints as $recipint) {
         Mail::to($recipint)->send(new SendInvitation($event,$recipint));
-        }
+            }
+
         return redirect('/event/show/'.$id);
+
+        } else {
+
+            return "Error";
+
+        }
+
+
 
     }
 }
