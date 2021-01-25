@@ -36,7 +36,7 @@ class EventController extends Controller
 
         } else {
 
-            return "Error";
+            return back();
         }
 
 
@@ -57,7 +57,7 @@ class EventController extends Controller
             return view('host.create_event',compact('doormen'));
 
         } else {
-            return 'No';
+            return back()->with('error', 'Not authorized to create event');
         }
     }
 
@@ -103,7 +103,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect('/host');
+        return redirect('/host')->with('status', 'Event Created!');
 
     }
 
@@ -126,7 +126,8 @@ class EventController extends Controller
 
         } else {
 
-            dd("no");
+            return back()->with('error', 'Not authorized to show event');
+
 
         }
 
@@ -151,7 +152,7 @@ class EventController extends Controller
             return view('host.edit_event',compact('event','doormen'));
 
         } else {
-            return "no";
+            return back()->with('error','Not authorized to edit event');
         }
 
     }
@@ -199,7 +200,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect('/host');
+        return redirect('/host')->with('status', 'Event Updated!');
     }
 
     /**
@@ -218,11 +219,11 @@ class EventController extends Controller
             $event = Event::find($id);
             $event->delete();
 
-            return redirect('/host');
+            return redirect('/host')->with('status', 'Event Deleted!');
 
         } else {
 
-            dd("no");
+            return back()->with('error', 'Not authorized to delete event');
 
         }
 
@@ -241,11 +242,12 @@ class EventController extends Controller
         Mail::to($recipint)->send(new SendInvitation($event,$recipint));
             }
 
-        return redirect('/event/show/'.$id);
+        return redirect('/event/show/'.$id)->with('status','Invitations sent by email');
 
         } else {
 
-            return "Error";
+        return back()->with('error','Not authorized to send invitations');
+
 
         }
 

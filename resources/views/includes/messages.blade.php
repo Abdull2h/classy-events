@@ -1,5 +1,5 @@
 @if($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-danger rounded-pill w-50 text-center">
         <ul>
             @foreach($errors->all() as $error)
                 <li>
@@ -11,13 +11,19 @@
 @endif
 
 @if (session('status'))
-    <div class="alert alert-success">
+    <div class="alert alert-success rounded-pill w-50 text-center alert-dismissible fade show" role="alert">
         {{session('status')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @endif
 
 @if (session('error'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger rounded-pill w-50 text-center alert-dismissible fade show" role="alert">
         {{session('error')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @endif

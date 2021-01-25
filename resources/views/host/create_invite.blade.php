@@ -14,18 +14,18 @@
                     </div>
                     <div class="col-md-8 mb-2">
                         <label for="name" class="form-label">Attendant Name</label>
-                        <input type="text" class="form-control" id="name" name="name" autofocus>
+                        <input type="text" class="form-control rounded-pill" id="name" name="name" autofocus>
                     </div>
                     <div class="col-md-8 mb-2">
                         <label for="email" class="form-label">Attendant Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control rounded-pill" id="email" name="email">
                     </div>
                     <div class="col-md-8 mb-2">
                         <label for="seats" class="form-label">Seats</label>
-                        <input type="number" class="form-control" id="seats" name="seats" value="1" min="1">
+                        <input type="number" class="form-control rounded-pill" id="seats" name="seats" value="1" min="1">
                     </div>
                     <div class="col-md-12 mb-2 text-center">
-                        <button type="submit" class="btn btn-primary rounded-pill">Save Event</button>
+                        <button type="submit" class="btn btn-primary rounded-pill">Save Attendant</button>
                         <button type="reset" class="btn btn-outline rounded-pill">Reset</button>
                     </div>
                 </form>

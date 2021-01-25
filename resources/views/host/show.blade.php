@@ -42,7 +42,7 @@
             <div class="col-md-8">
                 <div class="row m-2 align-items-end">
                     <label for="search" class="form-label m-2">Find Attendant</label>
-                    <input type="text" id="search" class="form-control w-50 mx-auto" placeholder="Search..">
+                    <input type="text" id="search" class="form-control w-50 mx-auto rounded-pill" placeholder="Search..">
                 </div>
                 <table class="table table-hover" style="width:100%">
                     <thead class="table-dark">

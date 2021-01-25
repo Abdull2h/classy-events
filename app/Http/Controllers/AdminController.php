@@ -31,7 +31,7 @@ class AdminController extends Controller
             return view('admin.index',compact('future_events','today_events', 'past_events'));
 
         } else {
-            return "Error";
+            return back();
         }
     }
 

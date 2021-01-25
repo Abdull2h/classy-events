@@ -34,7 +34,7 @@ class DoormanController extends Controller
 
         } else {
 
-            return "Error";
+            return back();
         }
 
     }

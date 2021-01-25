@@ -38,7 +38,7 @@ class AttendantController extends Controller
             return view('host.create_invite', compact('event'));
 
         } else {
-            return 'NO';
+            return back()->with('error', 'Not authorized to add attendant');
         }
 
     }
@@ -68,7 +68,7 @@ class AttendantController extends Controller
 
             $attendant->save();
 
-            return redirect('/event/show/'.$id);
+            return redirect('/event/show/'.$id)->with('status','Attendant created');
 
 
 
@@ -103,7 +103,7 @@ class AttendantController extends Controller
             return view('host.edit_invite', compact('attendant'));
 
         } else {
-            return 'NO';
+            return back()->with('error', 'Not authorized to edit attendant');
         }
 
     }
@@ -132,7 +132,7 @@ class AttendantController extends Controller
 
             $attendant->save();
 
-            return redirect('/event/show/'.$id);
+            return redirect('/event/show/'.$id)->with('status','Attendant updated');
 
     }
 
@@ -153,10 +153,10 @@ class AttendantController extends Controller
             $attendant = Attendant::find($aid);
             $attendant->delete();
 
-            return redirect('/event/show/'.$id);
+            return redirect('/event/show/'.$id)->with('status','Attendant deleted');
 
         } else {
-            return 'NO';
+            return back();
         }
 
     }

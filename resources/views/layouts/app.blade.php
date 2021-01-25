@@ -147,6 +147,7 @@
 
                 <!-- Right Side (Content)-->
                 <div class="col-md-10 mt-3 mb-5" style="min-height: 500px">
+                    <div class="row justify-content-center">@include('includes.messages')</div>
                     @yield('content')
                 </div>
             </div>
@@ -157,7 +158,7 @@
         <!-- End of container -->
 
         <nav class="navbar fixed-bottom navbar-light bg-b mt-auto">
-            <div class="container-fluid justify-content-center">
+            <div class="container-fluid ">
                 <small class="nav-item text-light">Copyright &#169; 2021 Classy Events</small>
             </div>
         </nav>

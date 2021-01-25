@@ -16,29 +16,29 @@
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="name" class="form-label">Event Name</label>
-                        <input type="text" class="form-control" id="name" name="name" autofocus value="{{ $event->name }}">
+                        <input type="text" class="form-control rounded-pill" id="name" name="name" autofocus value="{{ $event->name }}">
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="description" class="form-label">Event Description</label>
-                        <input type="text" class="form-control" id="description" name="description"
+                        <input type="text" class="form-control rounded-pill" id="description" name="description"
                             value="{{ $event->description }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="date" name="date" value="{{ $event->date }}">
+                        <input type="date" class="form-control rounded-pill" id="date" name="date" value="{{ $event->date }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="time" class="form-label">Time</label>
-                        <input type="time" class="form-control" id="time" name="time" value="{{ $event->time }}">
+                        <input type="time" class="form-control rounded-pill" id="time" name="time" value="{{ $event->time }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="location" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="location" name="location"
+                        <input type="text" class="form-control rounded-pill" id="location" name="location"
                             value="{{ $event->location }}">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="doorman" class="form-label">Choose Doorman</label>
-                        <select class="form-control" id="doorman" name="doorman" aria-label="Default select example">
+                        <select class="form-control rounded-pill" id="doorman" name="doorman" aria-label="Default select example">
                             <option selected value="{{ $event->doorman }}"> You Choosed:
                                 {{ App\Models\User::where('id', $event->doorman)->first()->name }}
                             </option>
@@ -50,7 +50,7 @@
                     <div class="col-md-12 mb-2">
                         <div class="form-group">
                             <label for="image">Event Image</label>
-                            <input type="file" class="form-control-file" id="image" name="image"
+                            <input type="file" class="form-control-file rounded-pill" id="image" name="image"
                                 src="/../../public/images/{{ $event->image }}"> <small class="text-muted">if you don't want
                                 to change the image just
                                 leave it blank.</small>
