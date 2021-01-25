@@ -25,8 +25,8 @@
                         <input type="number" class="form-control rounded-pill" id="seats" name="seats" value="1" min="1">
                     </div>
                     <div class="col-md-12 mb-2 text-center">
-                        <button type="submit" class="btn btn-primary rounded-pill">Save Attendant</button>
-                        <button type="reset" class="btn btn-outline rounded-pill">Reset</button>
+                        <button type="submit" class="btn btn-primary rounded-pill"><i class="bi bi-save align-top mr-2"></i>Save Attendant</button>
+                        <button type="reset" class="btn btn-outline rounded-pill"><i class="bi bi-x-square align-top mr-2"></i>Reset</button>
                     </div>
                 </form>
             </div>

@@ -11,6 +11,10 @@ use App\Models\Doorman;
 
 class DoormanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +38,7 @@ class DoormanController extends Controller
 
         } else {
 
-            return back();
+            return back()->with('error','Not authorized');
         }
 
     }

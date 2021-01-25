@@ -10,6 +10,10 @@ use App\Models\Event;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +35,7 @@ class AdminController extends Controller
             return view('admin.index',compact('future_events','today_events', 'past_events'));
 
         } else {
-            return back();
+            return back()->with('error','Not authorized');
         }
     }
 

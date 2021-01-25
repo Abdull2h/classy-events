@@ -13,6 +13,10 @@ use App\Models\Doorman;
 
 class AttendantController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -156,7 +160,7 @@ class AttendantController extends Controller
             return redirect('/event/show/'.$id)->with('status','Attendant deleted');
 
         } else {
-            return back();
+            return back()->with('error','Not authorized to delete attendant');
         }
 
     }

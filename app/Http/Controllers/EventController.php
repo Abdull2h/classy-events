@@ -6,15 +6,22 @@ use Illuminate\Http\Request;
 use auth;
 use DateTime;
 use Mail;
+use App\Models\User;
 use App\Models\Event;
 use App\Models\Attendant;
 use App\Models\Admin;
 use App\Models\Host;
 use App\Models\Doorman;
 use App\Mail\SendInvitation;
+use App\Mail\AssignDoorman;
 
 class EventController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +43,7 @@ class EventController extends Controller
 
         } else {
 
-            return back();
+            return back()->with('error','Not authorized');
         }
 
 
@@ -251,7 +258,26 @@ class EventController extends Controller
 
         }
 
+    }
 
+    public function assign_doorman ($id)
+    {
+        $user = Auth()->user()->id;
+        $event = Event::where('id',$id)->first();
+
+        if ( $event->owner == $user ) {
+
+        $recipint = User::where('id',$event->doorman)->first();
+
+        Mail::to($recipint)->send(new AssignDoorman($event,$recipint));
+
+        return redirect('/event/show/'.$id)->with('status',"Asigment sent to doorman's email");
+
+        } else {
+
+        return back()->with('error','Not authorized to send invitations');
+
+        }
 
     }
 }

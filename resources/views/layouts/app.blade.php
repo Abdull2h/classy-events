@@ -24,6 +24,8 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 
 
@@ -40,6 +42,10 @@
 
         .bg-b {
             background-image: repeating-linear-gradient(45deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(0deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(135deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(90deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), linear-gradient(90deg, rgb(17, 17, 17), rgb(66, 66, 66));
+        }
+
+        a {
+            text-decoration: none !important;
         }
 
         .header {
@@ -77,6 +83,7 @@
                 <nav class="navbar navbar-expand-md transparent navbar-dark bg-b">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="#">
+
                             {{ config('app.name', 'Laravel') }}
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -128,16 +135,18 @@
                     <nav class="nav flex-column">
                         <hr class="bg-info w-100">
                         @if (App\Models\Admin::where('user_id', Auth::user()->id)->first())
-                            <a class="nav-link text-light" href="/admin">Dashboard</a>
+                            <a class="nav-link text-light" href="/admin"><i class="bi bi-list mr-2"></i>
+                                Dashboard</a>
 
                         @elseif (App\Models\Host::where('user_id',Auth::user()->id)->first())
-                            <a class="nav-link text-light" aria-current="page" href="/host">Dashboard</a>
+                            <a class="nav-link text-light" aria-current="page" href="/host"><i class="bi bi-list mr-2 h5 align-top"></i>Dashboard</a>
                             <hr class="bg-info w-100">
 
-                            <a class="nav-link text-light" href="/event/create">Create new event</a>
+                            <a class="nav-link text-light" href="/event/create"><i class="bi bi-node-plus mr-2 h5 align-top"></i>Create new event</a>
 
                         @elseif (App\Models\Doorman::where('user_id',Auth::user()->id)->first())
-                            <a class="nav-link text-light" href="/doorman">Dashboard</a>
+                            <a class="nav-link text-light" href="/doorman"><i class="bi bi-list mr-2"></i>
+                                Dashboard</a>
 
                         @endif
                         <hr class="bg-info w-100">
@@ -158,8 +167,8 @@
         <!-- End of container -->
 
         <nav class="navbar fixed-bottom navbar-light bg-b mt-auto">
-            <div class="container-fluid ">
-                <small class="nav-item text-light">Copyright &#169; 2021 Classy Events</small>
+            <div class="container-fluid justify-content-center">
+                <small class="nav-item text-light">&#169; 2021 Classy Events. All rights reserved.</small>
             </div>
         </nav>
     </div>

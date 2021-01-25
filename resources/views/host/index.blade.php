@@ -30,7 +30,7 @@
                                             {{ $t_event->time }}</small></p>
                                     <div class="card-link d-flex justify-content-end">
                                         <a href="/event/show/{{ $t_event->id }}">
-                                            <div class="btn btn-outline-primary btn-sm rounded-pill">More</div>
+                                            <div class="btn btn-outline-primary btn-sm rounded-pill"><i class="bi bi-three-dots-vertical align-top"></i>More</div>
                                         </a>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                             {{ $f_event->time }}</small></p>
                                     <div class="card-link d-flex justify-content-end">
                                         <a href="/event/show/{{ $f_event->id }}">
-                                            <div class="btn btn-outline-primary btn-sm rounded-pill">More</div>
+                                            <div class="btn btn-outline-primary btn-sm rounded-pill"><i class="bi bi-three-dots-vertical align-top"></i>More</div>
                                         </a>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                             {{ $p_event->time }}</small></p>
                                     <div class="card-link d-flex justify-content-end">
                                         <a href="/event/show/{{ $p_event->id }}">
-                                            <div class="btn btn-outline-primary btn-sm rounded-pill">More</div>
+                                            <div class="btn btn-outline-primary btn-sm rounded-pill"><i class="bi bi-three-dots-vertical mr-1 align-top"></i>More</div>
                                         </a>
                                     </div>
                                 </div>

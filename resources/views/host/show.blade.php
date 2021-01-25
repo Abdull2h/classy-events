@@ -12,22 +12,30 @@
         <div class="row justify-content-center my-2">
             <div class="col-md-8">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-center"><img src="../../public/images/{{ $event->image }}" alt="..."
+                    <li class="list-group-item text-center"><img src="/public/images/{{ $event->image }}" alt="..."
                             style="max-height: 400px; max-width: 400px;"></li>
                     <li class="list-group-item">Name: {{ $event->name }}</li>
                     <li class="list-group-item">Description: {{ $event->description }}</li>
                     <li class="list-group-item">Location: {{ $event->location }}</li>
                     <li class="list-group-item">Date: {{ $event->date }}</li>
                     <li class="list-group-item">Time: {{ $event->time }}</li>
-                    <li class="list-group-item"><a href="/event/edit/{{ $event->id }}">
+                    <li class="list-group-item">Doorman: {{ App\Models\User::find($event->doorman)->name }}</li>
+                    <li class="list-group-item">
+                        <a href="/event/edit/{{ $event->id }}">
                             <button class="btn btn-outline-warning btn-sm rounded pill">Edit</button>
-                        </a></li>
-                        <li class="list-group-item"><a href="/event/show/{{ $event->id }}/add_invite">
-                            <button class="btn btn-outline-dark btn-sm rounded pill">Add Attendant</button>
-                        </a></li>
-                        <li class="list-group-item"><a href="/event/show/{{ $event->id }}/send_invitation">
-                            <button class="btn btn-outline-primary btn-sm rounded pill">Send Invitation to Attendants</button>
-                        </a></li>
+                        </a>
+                    </li>
+                    <li class="list-group-item"><a href="/event/show/{{ $event->id }}/add_invite">
+                            <button class="btn btn-outline-dark btn-sm rounded pill">Add Attendant</button></a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/event/show/{{ $event->id }}/send_invitation">
+                            <button class="btn btn-outline-primary btn-sm rounded pill mx-1">Send Invitation to Attendants</button>
+                        </a>
+                        <a href="/event/show/{{ $event->id }}/assign_doorman">
+                            <button class="btn btn-outline-primary btn-sm rounded pill mx-1">Send Assignment to doorman</button>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -62,7 +70,7 @@
                                 <td>{{ $attendant->seats }}</td>
                                 <td>{{ str_pad($attendant->code, 6, '0', STR_PAD_LEFT) }}</td>
                                 <td><a class="btn btn-sm btn-primary rounded-pill"
-                                        href="/event/show/{{ $attendant->event_id }}/edit_invite/{{ $attendant->id }}">Edit</a>
+                                        href="/event/show/{{ $attendant->event_id }}/edit_invite/{{ $attendant->id }}"><i class="bi bi-pencil-square align-top mr-1"></i>Edit</a>
                                 </td>
                             </tr>
                         @endforeach

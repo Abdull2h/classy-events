@@ -57,8 +57,8 @@
                         </div>
                     </div>
                     <div class="col-md-12 mb-2 text-center">
-                        <button type="submit" class="btn btn-primary rounded-pill">Save Changes</button>
-                        <button type="reset" class="btn btn-outline rounded-pill">Reset</button>
+                        <button type="submit" class="btn btn-primary rounded-pill"><i class="bi bi-save align-top mr-2"></i>Save Changes</button>
+                        <button type="reset" class="btn btn-outline rounded-pill"><i class="bi bi-x-square align-top mr-2"></i>Reset</button>
                     </div>
                 </form>
 
@@ -66,7 +66,7 @@
                     @csrf
                     @method('DELETE')
                     <div class="col-md-12 mb-2 text-center">
-                        <button type="submit" class="btn btn-outline-danger rounded-pill">Delete This Event</button>
+                        <button type="submit" class="btn btn-outline-danger rounded-pill"><i class="bi bi-trash align-top mr-2"></i>Delete This Event</button>
                     </div>
                 </form>
 
