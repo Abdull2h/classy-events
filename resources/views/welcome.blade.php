@@ -63,8 +63,9 @@
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-md navbar-dark transparent">
                         <div class="container">
-                            <a class="navbar-brand" href=@features>
-                                {{ config('app.name', 'Laravel') }}
+                            <a class="navbar-brand" href="#features">
+                                {{-- {{ config('app.name', 'FEATURES') }} --}}
+                                FEATURES
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -150,7 +151,7 @@
                 <!-- First row of Features -->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="h4 text-center" style="color: rgb(27 121 187)">Features</div>
+                        <div class="h4 text-center" style="color: rgb(27 121 187)" id="features">Features</div>
                     </div>
                 </div>
                 <!-- Second row of Features -->
