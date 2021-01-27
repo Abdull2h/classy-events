@@ -34,11 +34,11 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="doorman" class="form-label">Choose Doorman</label>
-                        <select class="form-control rounded-pill" id="doorman" name="doorman"
+                        <select dusk="dormen" class="form-control rounded-pill" id="doorman" name="doorman"
                             aria-label="Default select example">
-                            <option selected>Open this select menu</option>
+                            <option dusk="dormen" selected>Open this select menu</option>
                             @foreach ($doormen as $doorman)
-                                <option value="{{ $doorman->user_id }}"> {{ $doorman->user->name }}
+                                <option dusk="dormen" value="{{ $doorman->user_id }}"> {{ $doorman->user->name }}
                             @endforeach
                         </select>
                     </div>
