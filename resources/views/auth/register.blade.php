@@ -123,11 +123,11 @@
             <div class="form-group row">
                 <label class="col-form-label col-4" for="role">Sign As</label>
                 <div class="col-8">
-                    <select class="form-control form-select" size="4" name="role" required>
+                    <select dusk='role' class="form-control form-select" size="4" name="role" required>
                         <option disabled>Select one</option>
-                        <option value="admin">Admin</option>
-                        <option value="host">Host</option>
-                        <option value="doorman">Doorman</option>
+                        <option dusk="admin" value="admin">Admin</option>
+                        <option dusk="host" value="host">Host</option>
+                        <option dusk="doorman" value="doorman">Doorman</option>
                     </select>
                 </div>
             </div>
@@ -180,7 +180,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-8 offset-4">
-                    <p><label class="form-check-label"><input type="checkbox" required="required"> I accept the Terms
+                    <p><label class="form-check-label"><input name="cb" type="checkbox" required="required"> I accept the Terms
                             &amp;
                             Privacy Policy.</label></p>
                     <button type="submit" class="btn btn-primary rounded-pill">

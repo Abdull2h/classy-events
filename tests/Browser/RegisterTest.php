@@ -18,16 +18,18 @@ class RegisterTest extends DuskTestCase
      */
     public function test_basic_example()
     {
+        // select('role','Host')
         $this->browse(function (Browser $browser) {
             // $browser->screenshot('filename');
             $browser->visit('/register')
-                    ->select('role','Host')
+                    ->click('@host')
                     ->type('name','ahmadLaban')
                     ->type('email', 'test_ahmad@gmail.com')
                     ->type('password', 'xenel123')
-                    ->type('password_confirmation', 'xenel123');
-                    // ->press('Register')
-                    // ->assertPathIs('/home');
+                    ->type('password_confirmation', 'xenel123')
+                    ->check('cb')
+                    ->press('Register')
+                    ->assertPathIs('/home');
                     $browser->screenshot('after_reg');
                     
         });
