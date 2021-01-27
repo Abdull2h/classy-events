@@ -161,8 +161,8 @@
                     </div>
                     <!-- Second Feature -->
                     <div class="card m-3" style="width: 18rem;">
-                        <img src="https://image.flaticon.com/icons/png/512/122/122921.png" class="card-img-top m-auto"
-                            style="width:150px; height:150px;" alt="...">
+                        <img src="https://www.flaticon.com/svg/vstatic/svg/1077/1077976.svg?token=exp=1611777300~hmac=db0e93fa924ff8ca4f5a39282316d5e3"
+                            class="card-img-top m-auto" style="width:150px; height:150px;" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -262,7 +262,7 @@
                         <div class="text-center mb-1">
                             <i class="bi bi-twitter m-1"></i><i class="bi bi-youtube m-1"></i><i
                                 class="bi bi-instagram m-1"></i><i class="bi bi-linkedin m-1"></i><i
-                                class="bi bi-facebook m-1"></i><small class=" m-2">@ Classy_Event</small>
+                                class="bi bi-facebook m-1"></i><small class=" m-2">@ Classy_Events</small>
                         </div>
                         <div class="text-center">
                             <i class="bi bi-whatsapp m-1"></i><small class=" m-2">+966 532302555</small>
@@ -270,23 +270,27 @@
                         </div>
                     </div>
                     <div class="col-md-4 mx-5 mt-5">
-                        <label for="name" class="form-label text-light">Full Name</label>
-                        <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="name" name="name">
-                        <label for="name" class="form-label text-light">Email</label>
-                        <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="name" name="name">
-                        <label for="name" class="form-label text-light">Subject</label>
-                        <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="name" name="name">
-                        <label for="name" class="form-label text-light">Message</label>
-                        <textarea type="text" class="form-control mb-2 form-control-sm" id="name" name="name"
-                            rows="3"></textarea>
+                        <form action="">
+                            <label for="name" class="form-label text-light">Full Name</label>
+                            <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="name"
+                                name="name">
+                            <label for="email" class="form-label text-light">Email</label>
+                            <input type="email" class="form-control mb-2 form-control-sm rounded-pill" id="email"
+                                name="email">
+                            <label for="subject" class="form-label text-light">Subject</label>
+                            <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="subject"
+                                name="subject">
+                            <label for="message" class="form-label text-light">Message</label>
+                            <textarea type="text" class="form-control mb-2 form-control-sm rounded-pill px-3"
+                                id="message" name="message" rows="3" style="resize:none"></textarea>
 
-                        <div class="text-center my-3">
-                            <button type="submit" class="btn btn-outline-light btn-sm rounded-pill mx-auto"><i
-                                    class="bi bi-arrow-right-square align-top mr-2"></i>Send Email</button>
-                            <button type="reset" class="btn btn-outline text-light btn-sm rounded-pill mx-auto"><i
-                                    class="bi bi-x-square align-top mr-2"></i>Reset</button>
-                        </div>
-
+                            <div class="text-center my-3">
+                                <button type="submit" class="btn btn-outline-light btn-sm rounded-pill mx-auto"><i
+                                        class="bi bi-arrow-right-square align-top mr-2"></i>Send Email</button>
+                                <button type="reset" class="btn btn-outline text-light btn-sm rounded-pill mx-auto"><i
+                                        class="bi bi-x-square align-top mr-2"></i>Reset</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

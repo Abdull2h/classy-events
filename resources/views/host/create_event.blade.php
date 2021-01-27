@@ -34,7 +34,8 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="doorman" class="form-label">Choose Doorman</label>
-                        <select class="form-control rounded-pill" id="doorman" name="doorman" aria-label="Default select example">
+                        <select class="form-control rounded-pill" id="doorman" name="doorman"
+                            aria-label="Default select example">
                             <option selected>Open this select menu</option>
                             @foreach ($doormen as $doorman)
                                 <option value="{{ $doorman->user_id }}"> {{ $doorman->user->name }}
@@ -44,12 +45,14 @@
                     <div class="col-md-12 mb-2">
                         <div class="form-group">
                             <label for="image">Event Image</label>
-                            <input type="file" class="form-control-file rounded-pill" id="image" name="image">
+                            <input type="file" class="form-control-file" id="image" name="image">
                         </div>
                     </div>
                     <div class="col-md-12 mb-2 text-center">
-                        <button type="submit" class="btn btn-primary rounded-pill"><i class="bi bi-save align-top mr-2"></i>Save Event</button>
-                        <button type="reset" class="btn btn-outline rounded-pill"><i class="bi bi-x-square align-top mr-2"></i>Reset</button>
+                        <button type="submit" class="btn btn-primary rounded-pill"><i
+                                class="bi bi-save align-top mr-2"></i>Save Event</button>
+                        <button type="reset" class="btn btn-outline rounded-pill"><i
+                                class="bi bi-x-square align-top mr-2"></i>Reset</button>
                     </div>
                 </form>
             </div>

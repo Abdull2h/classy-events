@@ -139,10 +139,12 @@
                                 Dashboard</a>
 
                         @elseif (App\Models\Host::where('user_id',Auth::user()->id)->first())
-                            <a class="nav-link text-light" aria-current="page" href="/host"><i class="bi bi-list mr-2 h5 align-top"></i>Dashboard</a>
+                            <a class="nav-link text-light" aria-current="page" href="/host"><i
+                                    class="bi bi-list mr-2 h5 align-top"></i>Dashboard</a>
                             <hr class="bg-info w-100">
 
-                            <a class="nav-link text-light" href="/event/create"><i class="bi bi-node-plus mr-2 h5 align-top"></i>Create new event</a>
+                            <a class="nav-link text-light" href="/event/create"><i
+                                    class="bi bi-node-plus mr-2 h5 align-top"></i>Create new event</a>
 
                         @elseif (App\Models\Doorman::where('user_id',Auth::user()->id)->first())
                             <a class="nav-link text-light" href="/doorman"><i class="bi bi-list mr-2"></i>
@@ -166,6 +168,7 @@
         </div>
         <!-- End of container -->
 
+        <!-- Footer -->
         <nav class="navbar fixed-bottom navbar-light bg-b mt-auto">
             <div class="container-fluid justify-content-center">
                 <small class="nav-item text-light">&#169; 2021 Classy Events. All rights reserved.</small>
