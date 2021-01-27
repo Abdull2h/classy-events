@@ -19,11 +19,24 @@ class LoginTest extends DuskTestCase
         $user = User::find(1);
 
         $this->browse(function ($browser) use ($user) {
+            // $browser->screenshot('filename');
             $browser->visit('/login')
                     ->type('email', $user->email)
                     ->type('password', 'xenel123')
                     ->press('Login')
                     ->assertPathIs('/host');
+                    // $browser->screenshot('after_login');
+                    $browser->maximize();
         });
     }
+    // public function testExample()
+    // {
+    //     $this->browse(function (Browser $browser) {
+    //         $browser->loginAs(User::find(1))
+    //         ->visit('/host');
+    //     });
+        
+    // }
+
+    
 }
