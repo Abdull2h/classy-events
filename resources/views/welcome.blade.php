@@ -14,18 +14,28 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://unpkg.com/pattern.css" rel="stylesheet">
 
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
 
     <style>
-        #app {
+        body {
             background-image: radial-gradient(circle at center center, rgba(217, 217, 217, 0.05) 0%, rgba(217, 217, 217, 0.05) 15%, rgba(197, 197, 197, 0.05) 15%, rgba(197, 197, 197, 0.05) 34%, rgba(178, 178, 178, 0.05) 34%, rgba(178, 178, 178, 0.05) 51%, rgba(237, 237, 237, 0.05) 51%, rgba(237, 237, 237, 0.05) 75%, rgba(138, 138, 138, 0.05) 75%, rgba(138, 138, 138, 0.05) 89%, rgba(158, 158, 158, 0.05) 89%, rgba(158, 158, 158, 0.05) 100%), radial-gradient(circle at center center, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 6%, rgb(255, 255, 255) 6%, rgb(255, 255, 255) 12%, rgb(255, 255, 255) 12%, rgb(255, 255, 255) 31%, rgb(255, 255, 255) 31%, rgb(255, 255, 255) 92%, rgb(255, 255, 255) 92%, rgb(255, 255, 255) 97%, rgb(255, 255, 255) 97%, rgb(255, 255, 255) 100%);
             background-size: 42px 42px;
+            font-family: 'Ubuntu', sans-serif;
+            height: 100%;
+            overflow-x: hidden;
+            overscroll-behavior: none;
         }
 
         .header {
@@ -34,7 +44,6 @@
             height: 50vh;
             border-bottom-left-radius: 50% 30%;
             border-bottom-right-radius: 50% 30%;
-
             background-image: linear-gradient(306deg, rgba(54, 54, 54, 0.05) 0%, rgba(54, 54, 54, 0.05) 33.333%, rgba(85, 85, 85, 0.05) 33.333%, rgba(85, 85, 85, 0.05) 66.666%, rgba(255, 255, 255, 0.05) 66.666%, rgba(255, 255, 255, 0.05) 99.999%), linear-gradient(353deg, rgba(81, 81, 81, 0.05) 0%, rgba(81, 81, 81, 0.05) 33.333%, rgba(238, 238, 238, 0.05) 33.333%, rgba(238, 238, 238, 0.05) 66.666%, rgba(32, 32, 32, 0.05) 66.666%, rgba(32, 32, 32, 0.05) 99.999%), linear-gradient(140deg, rgba(192, 192, 192, 0.05) 0%, rgba(192, 192, 192, 0.05) 33.333%, rgba(109, 109, 109, 0.05) 33.333%, rgba(109, 109, 109, 0.05) 66.666%, rgba(30, 30, 30, 0.05) 66.666%, rgba(30, 30, 30, 0.05) 99.999%), linear-gradient(189deg, rgba(77, 77, 77, 0.05) 0%, rgba(77, 77, 77, 0.05) 33.333%, rgba(55, 55, 55, 0.05) 33.333%, rgba(55, 55, 55, 0.05) 66.666%, rgba(145, 145, 145, 0.05) 66.666%, rgba(145, 145, 145, 0.05) 99.999%), linear-gradient(90deg, rgb(9, 201, 186), rgb(18, 131, 221));
         }
 
@@ -51,6 +60,29 @@
             border: none;
         }
 
+        .about {
+            border-top-right-radius: 10% 50%;
+            border-bottom-left-radius: 10% 50%;
+            border-top-left-radius: 10% 50%;
+            border-bottom-right-radius: 10% 50%;
+
+            background-image: repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(157.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), linear-gradient(180deg, rgb(43, 77, 130), rgb(40, 144, 172));
+        }
+
+        .contact {
+            background-image: linear-gradient(90deg, #2b4d82, #2890ac);
+        }
+
+        .a {
+            position: relative;
+            width: 100%;
+            height: 200px;
+        }
+
+        .b {
+            fill: #2b4d82;
+        }
+
     </style>
 </head>
 
@@ -63,10 +95,6 @@
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-md navbar-dark transparent">
                         <div class="container">
-                            <a class="navbar-brand" href="#features">
-                                {{-- {{ config('app.name', 'FEATURES') }} --}}
-                                FEATURES
-                            </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -74,48 +102,12 @@
                             </button>
 
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <!-- Left Side Of Navbar -->
-                                <ul class="navbar-nav mr-auto">
-
-                                </ul>
-
-                                <!-- Right Side Of Navbar -->
-                                <ul class="navbar-nav ml-auto">
-                                    <!-- Authentication Links -->
-                                    @guest
-                                        @if (Route::has('login'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                            </li>
-                                        @endif
-
-                                        @if (Route::has('register'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                            </li>
-                                        @endif
-                                    @else
-                                        <li class="nav-item dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                {{ Auth::user()->name }}
-                                            </a>
-
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </div>
-                                        </li>
-                                    @endguest
-                                </ul>
+                                <div class="navbar-nav mx-auto">
+                                    <a class="nav-link mx-5" href="#features">Features</a>
+                                    <a class="nav-link mx-5" href="#about">About Us</a>
+                                    <a class="nav-link mx-5" href="#team">Our Team</a>
+                                    <a class="nav-link mx-5" href="#contact">Contact Us</a>
+                                </div>
                             </div>
                         </div>
                     </nav>
@@ -146,25 +138,25 @@
         <!-- End Of Header Section -->
 
         <!-- Features Section-->
-        <section class="features border mt-2">
+        <section class="features mt-2" id="features">
             <div class="container mt-4">
                 <!-- First row of Features -->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="h4 text-center" style="color: rgb(27 121 187)" id="features">Features</div>
+                        <div class="h1 text-center text-primary">Features</div>
                     </div>
                 </div>
                 <!-- Second row of Features -->
                 <div class="row text-center justify-content-center align-items-start">
                     <!-- First Feature -->
-                    <div class="card m-3 border border-info" style="width: 18rem;">
+                    <div class="card m-3" style="width: 18rem;">
                         <img src="https://image.flaticon.com/icons/png/512/122/122921.png" class="card-img-top m-auto"
                             style="width:150px; height:150px;" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-outline-primary rounded-pill">Go somewhere</a>
                         </div>
                     </div>
                     <!-- Second Feature -->
@@ -175,7 +167,7 @@
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-outline-primary rounded-pill">Go somewhere</a>
                         </div>
                     </div>
                     <!-- Third Feature -->
@@ -186,14 +178,129 @@
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-outline-primary rounded-pill">Go somewhere</a>
                         </div>
                     </div>
-                    <!-- End of second row -->
+                </div>
+                <!-- End of second row -->
+            </div>
+
+        </section>
+        <!-- End of features section -->
+
+        <!-- About Section-->
+        <section class="about" id="about">
+            <div class="container">
+                <!-- First row of About -->
+                <div class="row justify-content-center align-items-center">
+
+                    <div class="col-md-3 m-5">
+                        <div class="h1 text-center text-light">About Us</div>
+                    </div>
+                    <div class="col-md-5 m-5">
+                        <p class="text-light text-justify">Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit.
+                            Earum harum esse quo quod! Similique minima dolorem quibusdam quaerat culpa a voluptatibus
+                            possimus error, temporibus officia accusamus illo incidunt eaque repellendus nemo autem
+                            maxime explicabo. Corporis voluptatem cumque enim! Exercitationem quos rem excepturi a sequi
+                            accusamus fugiat, vero esse ipsum labore!
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- End of features section -->
+        <!-- End of about section -->
+
+        <!-- Team Section-->
+        <section class="team mt-2" id="team">
+            <div class="container mt-4">
+                <!-- First row of Team -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="h1 text-center text-primary">Our Team</div>
+                    </div>
+                </div>
+                <!-- Second row of Team -->
+                <div class="row text-center justify-content-center align-items-start">
+                    <!-- First Team -->
+                    <div class="card m-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Abdullah Bajaber</h5>
+                            <p class="card-text">CEO</p>
+                        </div>
+                    </div>
+                    <!-- Second Team -->
+                    <div class="card m-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Abdullah Bajaber</h5>
+                            <p class="card-text">CEO</p>
+                        </div>
+                    </div>
+                    <!-- Third Team -->
+                    <div class="card m-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Abdullah Bajaber</h5>
+                            <p class="card-text">CEO</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of second row -->
+            </div>
+
+        </section>
+        <!-- End of Team section -->
+
+
+        <!-- Contact Section-->
+        <section class="contact">
+            <div class="container">
+                <!-- First row of Contact -->
+                <div class="row justify-content-center align-items-center">
+
+                    <div class="col-md-4 mx-5 mt-5 text-light">
+                        <div class="h1 text-center mb-2" id="contact">Contact Us</div>
+                        <div class="text-center mb-1">
+                            <i class="bi bi-twitter m-1"></i><i class="bi bi-youtube m-1"></i><i
+                                class="bi bi-instagram m-1"></i><i class="bi bi-linkedin m-1"></i><i
+                                class="bi bi-facebook m-1"></i><small class=" m-2">@ Classy_Event</small>
+                        </div>
+                        <div class="text-center">
+                            <i class="bi bi-whatsapp m-1"></i><small class=" m-2">+966 532302555</small>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 mx-5 mt-5">
+                        <label for="name" class="form-label text-light">Full Name</label>
+                        <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="name" name="name">
+                        <label for="name" class="form-label text-light">Email</label>
+                        <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="name" name="name">
+                        <label for="name" class="form-label text-light">Subject</label>
+                        <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="name" name="name">
+                        <label for="name" class="form-label text-light">Message</label>
+                        <textarea type="text" class="form-control mb-2 form-control-sm" id="name" name="name"
+                            rows="3"></textarea>
+
+                        <div class="text-center my-3">
+                            <button type="submit" class="btn btn-outline-light btn-sm rounded-pill mx-auto"><i
+                                    class="bi bi-arrow-right-square align-top mr-2"></i>Send Email</button>
+                            <button type="reset" class="btn btn-outline text-light btn-sm rounded-pill mx-auto"><i
+                                    class="bi bi-x-square align-top mr-2"></i>Reset</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- TEST Dividors -->
+            <svg class="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 279.24" preserveAspectRatio="none">
+                <path class="b" d="M1000 0S331.54-4.18 0 279.24h1000z" opacity=".25" />
+                <path class="b" d="M1000 279.24s-339.56-44.3-522.95-109.6S132.86 23.76 0 25.15v254.09z" />
+            </svg>
+            <!-- End of dividor -->
+
+        </section>
+        <!-- End of Contact section -->
+
+
     </div>
     <!-- End Of App -->
 </body>
