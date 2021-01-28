@@ -169,7 +169,7 @@
                                     <span>Most Active Host</span>
                                 </div>
                                 <div class="align-self-center">
-                                    <i class="bi bi-people text-light h1"></i>
+                                    <i class="bi bi-bookmark-star text-light h1"></i>
                                 </div>
                             </div>
                             <div class="progress mt-1 mb-0" style="height: 7px; background-color: lightgrey">
@@ -195,7 +195,7 @@
                                     <span>Most Active Doorman</span>
                                 </div>
                                 <div class="align-self-center">
-                                    <i class="bi bi-people text-light h1"></i>
+                                    <i class="bi bi-award text-light h1"></i>
                                 </div>
                             </div>
                             <div class="progress mt-1 mb-0" style="height: 7px; background-color: lightgrey">
@@ -224,7 +224,7 @@
                                     <span>Most Event Has Attendants</span>
                                 </div>
                                 <div class="align-self-center">
-                                    <i class="bi bi-people text-light h1"></i>
+                                    <i class="bi bi-diagram-3 text-light h1"></i>
                                 </div>
                             </div>
                             <div class="progress mt-1 mb-0" style="height: 7px; background-color: lightgrey">
