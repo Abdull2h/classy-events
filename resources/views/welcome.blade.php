@@ -272,17 +272,14 @@
                     <div class="col-md-4 mx-5 mt-5">
                         <form action="">
                             <label for="name" class="form-label text-light">Full Name</label>
-                            <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="name"
-                                name="name">
+                            <input type="text" class="form-control mb-2 rounded-pill" id="name" name="name">
                             <label for="email" class="form-label text-light">Email</label>
-                            <input type="email" class="form-control mb-2 form-control-sm rounded-pill" id="email"
-                                name="email">
+                            <input type="email" class="form-control mb-2 rounded-pill" id="email" name="email">
                             <label for="subject" class="form-label text-light">Subject</label>
-                            <input type="text" class="form-control mb-2 form-control-sm rounded-pill" id="subject"
-                                name="subject">
+                            <input type="text" class="form-control mb-2 rounded-pill" id="subject" name="subject">
                             <label for="message" class="form-label text-light">Message</label>
-                            <textarea type="text" class="form-control mb-2 form-control-sm rounded-pill px-3"
-                                id="message" name="message" rows="3" style="resize:none"></textarea>
+                            <textarea type="text" class="form-control mb-2 rounded-pill px-3" id="message"
+                                name="message" rows="3" style="resize:none"></textarea>
 
                             <div class="text-center my-3">
                                 <button type="submit" class="btn btn-outline-light btn-sm rounded-pill mx-auto"><i

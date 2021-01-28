@@ -71,6 +71,35 @@
             border: none;
         }
 
+        .card-1 {
+            background-image: linear-gradient(135deg, rgba(57, 57, 57, 0.04) 0%, rgba(57, 57, 57, 0.04) 37%, rgba(143, 143, 143, 0.04) 37%, rgba(143, 143, 143, 0.04) 100%), linear-gradient(45deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 30%, rgba(166, 166, 166, 0.04) 30%, rgba(166, 166, 166, 0.04) 100%), linear-gradient(90deg, rgba(231, 231, 231, 0.04) 0%, rgba(231, 231, 231, 0.04) 63%, rgba(193, 193, 193, 0.04) 63%, rgba(193, 193, 193, 0.04) 100%), linear-gradient(0deg, rgba(162, 162, 162, 0.04) 0%, rgba(162, 162, 162, 0.04) 14%, rgba(210, 210, 210, 0.04) 14%, rgba(210, 210, 210, 0.04) 100%), linear-gradient(90deg, rgb(5, 48, 167), rgb(22, 204, 209));
+        }
+
+        .card-2 {
+            background-image: linear-gradient(84deg, rgba(110, 147, 161, 0.04) 0%, rgba(110, 147, 161, 0.04) 50%, rgba(31, 225, 91, 0.04) 50%, rgba(31, 225, 91, 0.04) 100%), linear-gradient(338deg, rgba(201, 121, 180, 0.04) 0%, rgba(201, 121, 180, 0.04) 50%, rgba(1, 113, 56, 0.04) 50%, rgba(1, 113, 56, 0.04) 100%), linear-gradient(223deg, rgba(211, 211, 180, 0.04) 0%, rgba(211, 211, 180, 0.04) 50%, rgba(13, 109, 126, 0.04) 50%, rgba(13, 109, 126, 0.04) 100%), linear-gradient(327deg, rgba(52, 121, 135, 0.04) 0%, rgba(52, 121, 135, 0.04) 50%, rgba(18, 246, 96, 0.04) 50%, rgba(18, 246, 96, 0.04) 100%), linear-gradient(289deg, rgba(127, 18, 115, 0.04) 0%, rgba(127, 18, 115, 0.04) 50%, rgba(70, 203, 229, 0.04) 50%, rgba(70, 203, 229, 0.04) 100%), linear-gradient(203deg, rgba(131, 205, 141, 0.04) 0%, rgba(131, 205, 141, 0.04) 50%, rgba(37, 31, 18, 0.04) 50%, rgba(37, 31, 18, 0.04) 100%), linear-gradient(221deg, rgba(13, 183, 43, 0.04) 0%, rgba(13, 183, 43, 0.04) 50%, rgba(103, 42, 135, 0.04) 50%, rgba(103, 42, 135, 0.04) 100%), linear-gradient(232deg, rgba(85, 200, 233, 0.04) 0%, rgba(85, 200, 233, 0.04) 50%, rgba(215, 24, 12, 0.04) 50%, rgba(215, 24, 12, 0.04) 100%), linear-gradient(226deg, rgba(95, 197, 25, 0.04) 0%, rgba(95, 197, 25, 0.04) 50%, rgba(30, 61, 7, 0.04) 50%, rgba(30, 61, 7, 0.04) 100%), linear-gradient(178deg, rgba(132, 241, 60, 0.04) 0%, rgba(132, 241, 60, 0.04) 50%, rgba(52, 203, 19, 0.04) 50%, rgba(52, 203, 19, 0.04) 100%), linear-gradient(138deg, rgba(67, 161, 9, 0.04) 0%, rgba(67, 161, 9, 0.04) 50%, rgba(27, 242, 201, 0.04) 50%, rgba(27, 242, 201, 0.04) 100%), linear-gradient(342deg, rgba(33, 36, 218, 0.04) 0%, rgba(33, 36, 218, 0.04) 50%, rgba(248, 232, 35, 0.04) 50%, rgba(248, 232, 35, 0.04) 100%), linear-gradient(70deg, rgba(236, 115, 112, 0.04) 0%, rgba(236, 115, 112, 0.04) 50%, rgba(33, 180, 6, 0.04) 50%, rgba(33, 180, 6, 0.04) 100%), linear-gradient(106deg, rgba(11, 133, 241, 0.04) 0%, rgba(11, 133, 241, 0.04) 50%, rgba(197, 131, 207, 0.04) 50%, rgba(197, 131, 207, 0.04) 100%), linear-gradient(127deg, rgb(50, 233, 241), rgb(7, 146, 201));
+
+        }
+
+        .card-3 {
+            background-image: linear-gradient(315deg, rgba(57, 57, 57, 0.04) 0%, rgba(57, 57, 57, 0.04) 37%, rgba(143, 143, 143, 0.04) 37%, rgba(143, 143, 143, 0.04) 100%), linear-gradient(225deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 30%, rgba(166, 166, 166, 0.04) 30%, rgba(166, 166, 166, 0.04) 100%), linear-gradient(270deg, rgba(231, 231, 231, 0.04) 0%, rgba(231, 231, 231, 0.04) 63%, rgba(193, 193, 193, 0.04) 63%, rgba(193, 193, 193, 0.04) 100%), linear-gradient(180deg, rgba(162, 162, 162, 0.04) 0%, rgba(162, 162, 162, 0.04) 14%, rgba(210, 210, 210, 0.04) 14%, rgba(210, 210, 210, 0.04) 100%), linear-gradient(270deg, rgb(5, 48, 167), rgb(22, 204, 209));
+        }
+
+        .b-b {
+            border-bottom: 3px solid black;
+
+        }
+
+        .b-l {
+            border-left: 4px solid lightsalmon;
+
+
+        }
+
+        .b-r {
+            border-right: 4px solid lightsalmon;
+
+        }
+
     </style>
 </head>
 
@@ -137,6 +166,11 @@
                         @if (App\Models\Admin::where('user_id', Auth::user()->id)->first())
                             <a class="nav-link text-light" href="/admin"><i class="bi bi-list mr-2"></i>
                                 Dashboard</a>
+                            <hr class="bg-info w-100">
+
+                            <a class="nav-link text-light" href="/admin/reports"><i
+                                    class="bi bi-clipboard-data mr-2"></i>
+                                Reports</a>
 
                         @elseif (App\Models\Host::where('user_id',Auth::user()->id)->first())
                             <a class="nav-link text-light" aria-current="page" href="/host"><i
