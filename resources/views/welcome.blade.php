@@ -161,7 +161,7 @@
                     </div>
                     <!-- Second Feature -->
                     <div class="card m-3" style="width: 18rem;">
-                        <img src="https://www.flaticon.com/svg/vstatic/svg/1077/1077976.svg?token=exp=1611777300~hmac=db0e93fa924ff8ca4f5a39282316d5e3"
+                        <img src="https://www.flaticon.com/svg/vstatic/svg/1611/1611220.svg?token=exp=1611932976~hmac=0c56ae1608489c47fc20aac7a669e193"
                             class="card-img-top m-auto" style="width:150px; height:150px;" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -172,7 +172,7 @@
                     </div>
                     <!-- Third Feature -->
                     <div class="card m-3" style="width: 18rem;">
-                        <img src="https://image.flaticon.com/icons/png/512/122/122921.png" class="card-img-top m-auto"
+                        <img src="https://www.flaticon.com/svg/vstatic/svg/1451/1451919.svg?token=exp=1611932903~hmac=926607c496f709495a27f79a12e6a723" class="card-img-top m-auto"
                             style="width:150px; height:150px;">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -270,7 +270,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 mx-5 mt-5">
-                        <form action="">
+                        <form action="/contact_us" method="POST">
+                            @csrf
                             <label for="name" class="form-label text-light">Full Name</label>
                             <input type="text" class="form-control mb-2 rounded-pill" id="name" name="name">
                             <label for="email" class="form-label text-light">Email</label>

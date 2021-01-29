@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DateTime;
+use Mail;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Event;
 use App\Models\Attendant;
+use App\Mail\ContactUs;
+
 
 
 class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('contact_us');
     }
     /**
      * Display a listing of the resource.
@@ -61,6 +64,26 @@ class AdminController extends Controller
         } else {
             return back()->with('error','Not authorized');
         }
+    }
+
+    public function contact_us (Request $request)
+    {
+            $this->validate($request, [
+                'name'     =>  'required',
+                'email'  =>  'required|email',
+                'subject'  =>  'required',
+                'message' =>  'required'
+                ]);
+
+                    $data = array(
+                        'name'      =>  $request->name,
+                        'email'      =>  $request->email,
+                        'subject'      =>  $request->subject,
+                        'message'   =>   $request->message
+                    );
+
+                Mail::to('aboode.797@gmail.com')->send(new ContactUs($data));
+                return back();
     }
 
     /**

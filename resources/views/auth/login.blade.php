@@ -124,7 +124,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-4" for="email">{{ __('E-Mail Address') }}</label>
                 <div class="col-8">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                    <input id="email" type="email" class="form-control rounded-pill @error('email') is-invalid @enderror"
                         name="email" value="{{ old('email') }}" required autocomplete="email">
 
                     @error('email')
@@ -137,7 +137,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-4">{{ __('Password') }}</label>
                 <div class="col-8">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                    <input id="password" type="password" class="form-control rounded-pill @error('password') is-invalid @enderror"
                         name="password" required autocomplete="new-password">
 
                     @error('password')

@@ -123,7 +123,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-4" for="role">Sign As</label>
                 <div class="col-8">
-                    <select dusk='role' class="form-control form-select" size="4" name="role" required>
+                    <select dusk='role' class="form-control form-select rounded-pill px-4" size="4" name="role" required>
                         <option disabled>Select one</option>
                         <option dusk="admin" value="admin">Admin</option>
                         <option dusk="host" value="host">Host</option>
@@ -135,7 +135,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-4" for="name">{{ __('Name') }}</label>
                 <div class="col-8">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                    <input id="name" type="text" class="form-control rounded-pill @error('name') is-invalid @enderror" name="name"
                         value="{{ old('name') }}" required autocomplete="name">
 
                     @error('name')
@@ -148,7 +148,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-4" for="email">{{ __('E-Mail Address') }}</label>
                 <div class="col-8">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                    <input id="email" type="email" class="form-control rounded-pill @error('email') is-invalid @enderror"
                         name="email" value="{{ old('email') }}" required autocomplete="email">
 
                     @error('email')
@@ -161,7 +161,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-4">{{ __('Password') }}</label>
                 <div class="col-8">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                    <input id="password" type="password" class="form-control rounded-pill @error('password') is-invalid @enderror"
                         name="password" required autocomplete="new-password">
 
                     @error('password')
@@ -174,7 +174,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-4">{{ __('Confirm Password') }}</label>
                 <div class="col-8">
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                    <input id="password-confirm" type="password" class="form-control rounded-pill" name="password_confirmation"
                         required autocomplete="new-password">
                 </div>
             </div>

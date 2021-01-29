@@ -46,6 +46,10 @@ Route::delete('/event/show/{id}/delete_invite/{aid}', [App\Http\Controllers\Atte
 // Admin Routes
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_dashboard');
 Route::get('/admin/reports', [App\Http\Controllers\AdminController::class, 'reports'])->name('admin_reports');
+
+// Contact Us
+Route::post('/contact_us', [App\Http\Controllers\AdminController::class, 'contact_us'])->name('contact_us');
+
 /*
 |   index -> all events (admin_dashboard)
 |   show -> single event
