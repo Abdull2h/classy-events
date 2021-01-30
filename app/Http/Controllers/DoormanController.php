@@ -30,9 +30,9 @@ class DoormanController extends Controller
             $now = new DateTime();
             $date = $now->format('Y-m-d');
 
-            $future_events = Event::where('doorman',$user)->where('Date','>',$date)->get();
-            $today_events = Event::where('doorman',$user)->where('Date','=',$date)->get();
-            $past_events = Event::where('doorman',$user)->where('Date','<',$date)->get();
+            $future_events = Event::where('doorman',$user)->where('Date','>',$date)->orderBy('Date','ASC')->get();
+            $today_events = Event::where('doorman',$user)->where('Date','=',$date)->orderBy('Date','ASC')->get();
+            $past_events = Event::where('doorman',$user)->where('Date','<',$date)->orderBy('Date','ASC')->get();
 
             return view('doorman.index',compact('future_events','today_events', 'past_events'));
 

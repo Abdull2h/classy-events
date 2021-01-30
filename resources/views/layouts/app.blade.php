@@ -44,6 +44,17 @@
             background-image: repeating-linear-gradient(45deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(0deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(135deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), repeating-linear-gradient(90deg, hsla(207, 0%, 63%, 0.05) 0px, hsla(207, 0%, 63%, 0.05) 1px, transparent 1px, transparent 11px, hsla(207, 0%, 63%, 0.05) 11px, hsla(207, 0%, 63%, 0.05) 12px, transparent 12px, transparent 32px), linear-gradient(90deg, rgb(17, 17, 17), rgb(66, 66, 66));
         }
 
+
+        .list-group {
+            border-radius: 0px;
+
+        }
+
+        .list-group-item {
+            background-image: repeating-linear-gradient(90deg, hsla(298, 16%, 68%, 0.06) 0px, hsla(298, 16%, 68%, 0.06) 1px, transparent 1px, transparent 21px, hsla(298, 16%, 68%, 0.06) 21px, hsla(298, 16%, 68%, 0.06) 22px, transparent 22px, transparent 72px), repeating-linear-gradient(0deg, hsla(298, 16%, 68%, 0.06) 0px, hsla(298, 16%, 68%, 0.06) 1px, transparent 1px, transparent 21px, hsla(298, 16%, 68%, 0.06) 21px, hsla(298, 16%, 68%, 0.06) 22px, transparent 22px, transparent 72px), repeating-linear-gradient(135deg, hsla(298, 16%, 68%, 0.06) 0px, hsla(298, 16%, 68%, 0.06) 1px, transparent 1px, transparent 21px, hsla(298, 16%, 68%, 0.06) 21px, hsla(298, 16%, 68%, 0.06) 22px, transparent 22px, transparent 72px), linear-gradient(90deg, hsl(275, 3%, 97%), hsl(275, 3%, 97%));
+            border: none;
+        }
+
         a {
             text-decoration: none !important;
         }
