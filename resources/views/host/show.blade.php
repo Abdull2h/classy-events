@@ -90,7 +90,7 @@
 
         <!-- Third row -->
         <div class="row justify-content-center mt-4">
-            <div class="h4 text-center">Attendants List</div>
+            <div class="h4 text-center b-b">Attendants List</div>
         </div>
 
         <!-- Fourth row -->

@@ -3,15 +3,19 @@
 @section('content')
 
     <div class="container my-2 justify-content-around">
+        <!-- First Row -->
+        <div class="row justify-content-center">
+            <div class="h4 text-center b-b">Create New Event</div>
+        </div>
+
+        <!-- Second Row -->
+
         <div class="row justify-content-center">
             <div class="col-md-8">
 
                 <form class="row justify-content-center" action="/event/create" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="col-md-12 mb-2">
-                        <div class="h4 text-center">Create New Event</div>
 
-                    </div>
                     <div class="col-md-12 mb-2">
                         <label for="name" class="form-label">Event Name</label>
                         <input type="text" class="form-control rounded-pill" id="name" name="name" autofocus>

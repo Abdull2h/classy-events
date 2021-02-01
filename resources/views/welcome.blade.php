@@ -61,10 +61,8 @@
         }
 
         .about {
-            border-top-right-radius: 10% 50%;
-            border-bottom-left-radius: 10% 50%;
-            border-top-left-radius: 10% 50%;
-            border-bottom-right-radius: 10% 50%;
+            border-top-right-radius: 50% 30%;
+            border-bottom-left-radius: 50% 30%;
 
             background-image: repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(157.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), linear-gradient(180deg, rgb(43, 77, 130), rgb(40, 144, 172));
         }
@@ -119,9 +117,9 @@
             <div class="container py-3">
                 <div class="row text-light text-center justify-content-center align-items-center mt-2">
                     <div class="col-md-4 d-flex flex-column bd-highlight px-5 py-2">
-                        <div class="h1">Welcome</div>
-                        <div class="h6">Classy Events is an event managment system that
-                            will do pla bla bla
+                        <div class="h1">Classy Events</div>
+                        <div class="h6">Event managment system that
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, non!
                         </div>
                     </div>
                     <div class="col-md-4 d-flex flex-column bd-highlight px-5 py-2">
@@ -161,8 +159,8 @@
                     </div>
                     <!-- Second Feature -->
                     <div class="card m-3" style="width: 18rem;">
-                        <img src="https://www.flaticon.com/svg/vstatic/svg/1611/1611220.svg?token=exp=1611932976~hmac=0c56ae1608489c47fc20aac7a669e193"
-                            class="card-img-top m-auto" style="width:150px; height:150px;" alt="...">
+                        <img src="https://image.flaticon.com/icons/png/512/122/122921.png" class="card-img-top m-auto"
+                            style="width:150px; height:150px;" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -172,7 +170,7 @@
                     </div>
                     <!-- Third Feature -->
                     <div class="card m-3" style="width: 18rem;">
-                        <img src="https://www.flaticon.com/svg/vstatic/svg/1451/1451919.svg?token=exp=1611932903~hmac=926607c496f709495a27f79a12e6a723" class="card-img-top m-auto"
+                        <img src="https://image.flaticon.com/icons/png/512/122/122921.png" class="card-img-top m-auto"
                             style="width:150px; height:150px;">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>

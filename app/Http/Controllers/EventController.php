@@ -207,7 +207,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect('/host')->with('status', 'Event Updated!');
+        return redirect('/event/show/'.$id)->with('status', 'Event Updated!');
     }
 
     /**
