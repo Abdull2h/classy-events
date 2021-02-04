@@ -3,6 +3,12 @@
 @section('content')
 
     <div class="container my-2 justify-content-around">
+        <!-- First Row -->
+        <div class="row justify-content-center">
+            <div class="h4 text-center b-b">Edit Event</div>
+        </div>
+
+        <!-- Second Row -->
         <div class="row justify-content-center">
             <div class="col-md-8">
 
@@ -11,8 +17,6 @@
                     @csrf
                     @method('PUT')
                     <div class="col-md-12 mb-2">
-                        <div class="h4 text-center">Edit Event</div>
-
                     </div>
                     <div class="col-md-12 mb-2">
                         <label for="name" class="form-label">Event Name</label>
@@ -55,7 +59,8 @@
                         <div class="form-group">
                             <label for="image">Event Image</label>
                             <input type="file" class="form-control-file" id="image" name="image"
-                                src="/../../public/images/{{ $event->image }}"> <small class="text-muted">if you don't want
+                                src="/../../public/images/{{ $event->image }}"> <small class="text-muted">if you don't
+                                want
                                 to change the image just
                                 leave it blank.</small>
                         </div>
