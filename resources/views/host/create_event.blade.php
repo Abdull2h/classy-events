@@ -22,11 +22,11 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control rounded-pill" id="date" name="date">
+                        <input type="date" class="form-control rounded-pill" id="date" name="date" type="date">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="time" class="form-label">Time</label>
-                        <input type="time" class="form-control rounded-pill" id="time" name="time">
+                        <input type="time" class="form-control rounded-pill" id="time" name="time" type="time">
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="location" class="form-label">Location</label>
