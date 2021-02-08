@@ -202,7 +202,6 @@ class EventController extends Controller
         $event->location = $request->location;
         $event->doorman = $request->doorman;
         $event->image = $filename;
-        $event->owner = Auth()->user()->id;
 
 
         $event->save();
