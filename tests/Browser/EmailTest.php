@@ -21,7 +21,8 @@ class EmailTest extends DuskTestCase
             ->type('email', 'ahmad!8laban@gmial.com')
             ->type('subject', 'loremlorememsum')
             ->type('message', 'loremlorememsumloremlorememsumloremlorememsum')
-            ->press('Send Email');
+            ->press('Send Email')
+            ->assertPathIs('/wellcome');
         });
     }
 }
