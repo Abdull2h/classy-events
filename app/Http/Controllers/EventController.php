@@ -31,7 +31,7 @@ class EventController extends Controller
     {
         $user = Auth()->user();
 
-        if ( Event::where('owner',$user->id)->first() ) {
+        if ( Host::where('user_id',$user->id)->first() ) {
             $now = new DateTime();
             $date = $now->format('Y-m-d');
 
