@@ -25,7 +25,7 @@ class LoginTest extends DuskTestCase
                     ->type('password', 'xenel123')
                     ->press('Login')
                     ->assertPathIs('/host');
-                    // $browser->screenshot('after_login');
+                    $browser->screenshot('after_login');
                     $browser->maximize();
         });
     }
