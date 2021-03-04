@@ -44,24 +44,68 @@ class AdminController extends Controller
         }
     }
 
+    public function active_host()
+    {
+            $event = Event::select('owner')->groupBy('owner')->orderByRaw('COUNT(*) DESC')->first('owner');
+
+            if (!$event)
+            {
+                return $active_host = false;
+
+            } else {
+
+                $active_host = User::where('id', $event->owner)->first();
+                return $active_host;
+            }
+    }
+
+    public function active_doorman()
+    {
+            $event = Event::select('doorman')->groupBy('doorman')->orderByRaw('COUNT(*) DESC')->first('doorman');
+
+            if (!$event)
+            {
+                return $active_event = false;
+
+            } else {
+
+                $active_doorman = User::where('id', $event->doorman)->first();
+                return $active_doorman;
+            }
+    }
+
+    public function active_event()
+    {
+            $event = Attendant::select('event_id')->groupBy('event_id')->orderByRaw('COUNT(*) DESC')->first();
+
+            if (!$event)
+            {
+                return $active_event = false;
+
+            } else {
+
+                $active_event = Event::find($event)->first();
+                return $active_event;
+
+            }
+
+    }
+
     public function reports()
     {
         $user = Auth()->user()->id;
 
-        if ( $user = Admin::where('user_id',$user)->first() ) {
+        if ( $user = Admin::where('user_id',$user)->first() )
+        {
 
-            $event1 = Event::select('owner')->groupBy('owner')->orderByRaw('COUNT(*) DESC')->limit(1)->first('owner');
-            $active_host = User::where('id', $event1->owner)->first();
-
-            $event2 = Event::select('doorman')->groupBy('doorman')->orderByRaw('COUNT(*) DESC')->limit(1)->first('doorman');
-            $active_doorman = User::where('id', $event2->doorman)->first();
-
-            $event3 = Attendant::select('event_id')->groupBy('event_id')->orderByRaw('COUNT(*) DESC')->limit(1)->first();
-            $active_event = Event::find($event3)->first();
+            $active_host = $this->active_host();
+            $active_doorman = $this->active_doorman();
+            $active_event = $this->active_event();
 
             return view('admin.reports',compact('active_host', 'active_doorman', 'active_event'));
 
         } else {
+
             return back()->with('error','Not authorized');
         }
     }
