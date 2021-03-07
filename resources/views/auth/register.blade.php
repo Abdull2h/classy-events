@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-    <title>Bootstrap Sign up Form Horizontal</title>
+    <title>Registration - Classy Events</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -123,7 +123,8 @@
             <div class="form-group row">
                 <label class="col-form-label col-4" for="role">Sign As</label>
                 <div class="col-8">
-                    <select dusk='role' class="form-control form-select rounded-pill px-4" size="4" name="role" required>
+                    <select dusk='role' class="form-control form-select rounded-pill px-4" size="4" name="role"
+                        required>
                         <option disabled>Select one</option>
                         <option dusk="admin" value="admin">Admin</option>
                         <option dusk="host" value="host">Host</option>
@@ -135,8 +136,8 @@
             <div class="form-group row">
                 <label class="col-form-label col-4" for="name">{{ __('Name') }}</label>
                 <div class="col-8">
-                    <input id="name" type="text" class="form-control rounded-pill @error('name') is-invalid @enderror" name="name"
-                        value="{{ old('name') }}" required autocomplete="name">
+                    <input id="name" type="text" class="form-control rounded-pill @error('name') is-invalid @enderror"
+                        name="name" value="{{ old('name') }}" required autocomplete="name">
 
                     @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -148,8 +149,9 @@
             <div class="form-group row">
                 <label class="col-form-label col-4" for="email">{{ __('E-Mail Address') }}</label>
                 <div class="col-8">
-                    <input id="email" type="email" class="form-control rounded-pill @error('email') is-invalid @enderror"
-                        name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <input id="email" type="email"
+                        class="form-control rounded-pill @error('email') is-invalid @enderror" name="email"
+                        value="{{ old('email') }}" required autocomplete="email">
 
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -161,8 +163,9 @@
             <div class="form-group row">
                 <label class="col-form-label col-4">{{ __('Password') }}</label>
                 <div class="col-8">
-                    <input id="password" type="password" class="form-control rounded-pill @error('password') is-invalid @enderror"
-                        name="password" required autocomplete="new-password">
+                    <input id="password" type="password"
+                        class="form-control rounded-pill @error('password') is-invalid @enderror" name="password"
+                        required autocomplete="new-password">
 
                     @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -174,13 +177,14 @@
             <div class="form-group row">
                 <label class="col-form-label col-4">{{ __('Confirm Password') }}</label>
                 <div class="col-8">
-                    <input id="password-confirm" type="password" class="form-control rounded-pill" name="password_confirmation"
-                        required autocomplete="new-password">
+                    <input id="password-confirm" type="password" class="form-control rounded-pill"
+                        name="password_confirmation" required autocomplete="new-password">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-8 offset-4">
-                    <p><label class="form-check-label"><input name="cb" type="checkbox" required="required"> I accept the Terms
+                    <p><label class="form-check-label"><input name="cb" type="checkbox" required="required"> I accept
+                            the Terms
                             &amp;
                             Privacy Policy.</label></p>
                     <button type="submit" class="btn btn-primary rounded-pill">
