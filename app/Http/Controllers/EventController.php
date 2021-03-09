@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Mail\AssignDoorman;
+use App\Mail\SendInvitation;
+use App\Models\Admin;
+use App\Models\Attendant;
+use App\Models\Doorman;
+use App\Models\Event;
+use App\Models\Host;
+use App\Models\User;
 use auth;
 use DateTime;
+use Illuminate\Http\Request;
 use Mail;
-use App\Models\User;
-use App\Models\Event;
-use App\Models\Attendant;
-use App\Models\Admin;
-use App\Models\Host;
-use App\Models\Doorman;
-use App\Mail\SendInvitation;
-use App\Mail\AssignDoorman;
 
 class EventController extends Controller
 {
@@ -31,21 +31,20 @@ class EventController extends Controller
     {
         $user = Auth()->user();
 
-        if ( Host::where('user_id',$user->id)->first() ) {
+        if (Host::where('user_id', $user->id)->first()) {
             $now = new DateTime();
             $date = $now->format('Y-m-d');
 
-            $future_events = Event::where('owner',$user->id)->where('Date','>',$date)->orderBy('Date','ASC')->get();
-            $today_events = Event::where('owner',$user->id)->where('Date','=',$date)->orderBy('Date','ASC')->get();
-            $past_events = Event::where('owner',$user->id)->where('Date','<',$date)->orderBy('Date','ASC')->get();
+            $future_events = Event::where('owner', $user->id)->where('Date', '>', $date)->orderBy('Date', 'ASC')->get();
+            $today_events = Event::where('owner', $user->id)->where('Date', '=', $date)->orderBy('Date', 'ASC')->get();
+            $past_events = Event::where('owner', $user->id)->where('Date', '<', $date)->orderBy('Date', 'ASC')->get();
 
-            return view('host.index',compact('future_events','today_events', 'past_events'));
+            return view('host.index', compact('future_events', 'today_events', 'past_events'));
 
         } else {
 
-            return back()->with('error','Not authorized');
+            return back()->with('error', 'Not authorized');
         }
-
 
     }
 
@@ -58,10 +57,10 @@ class EventController extends Controller
     {
         $user = Auth()->user()->id;
 
-        if ( Host::where('user_id',$user)->first() ) {
+        if (Host::where('user_id', $user)->first()) {
 
             $doormen = Doorman::get();
-            return view('host.create_event',compact('doormen'));
+            return view('host.create_event', compact('doormen'));
 
         } else {
             return back()->with('error', 'Not authorized to create event');
@@ -76,7 +75,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-            $request->validate([
+        $request->validate([
             'name' => 'required|max:200',
             'description' => 'required|max:500',
             'date' => 'required|max:200',
@@ -87,9 +86,9 @@ class EventController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $file = $request->file('image') ;
-            $ext = $file->getClientOriginalExtension() ;
-            $filename = 'image' . '_' . time() . '.' . $ext ;
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = 'image' . '_' . time() . '.' . $ext;
             $file->storeAs('public/images', $filename);
 
         } else {
@@ -107,7 +106,6 @@ class EventController extends Controller
         $event->image = $filename;
         $event->owner = Auth()->user()->id;
 
-
         $event->save();
 
         return redirect('/host')->with('status', 'Event Created!');
@@ -123,18 +121,17 @@ class EventController extends Controller
     public function show($id)
     {
         $user = Auth()->user()->id;
-        $event = Event::where('id',$id)->first();
+        $event = Event::where('id', $id)->first();
 
-        if ( $event->owner == $user || $event->doorman == $user || Admin::where('user_id',$user)->first() ) {
+        if ($event->owner == $user || $event->doorman == $user || Admin::where('user_id', $user)->first()) {
 
-            $attendants = Attendant::where('event_id',$id)->get();
+            $attendants = Attendant::where('event_id', $id)->get();
 
-            return view('host.show',compact('event','attendants'));
+            return view('host.show', compact('event', 'attendants'));
 
         } else {
 
             return back()->with('error', 'Not authorized to show event');
-
 
         }
 
@@ -150,16 +147,16 @@ class EventController extends Controller
     {
 
         $user = Auth()->user()->id;
-        $event = Event::where('id',$id)->first();
+        $event = Event::where('id', $id)->first();
 
-        if ( $event->owner == $user || Admin::where('user_id',$user)->first() ) {
+        if ($event->owner == $user || Admin::where('user_id', $user)->first()) {
 
             $doormen = Doorman::get();
 
-            return view('host.edit_event',compact('event','doormen'));
+            return view('host.edit_event', compact('event', 'doormen'));
 
         } else {
-            return back()->with('error','Not authorized to edit event');
+            return back()->with('error', 'Not authorized to edit event');
         }
 
     }
@@ -184,14 +181,14 @@ class EventController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $file = $request->file('image') ;
-            $ext = $file->getClientOriginalExtension() ;
-            $filename = 'image' . '_' . time() . '.' . $ext ;
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = 'image' . '_' . time() . '.' . $ext;
             $file->storeAs('public/images', $filename);
 
         } else {
 
-            $filename = Event::where('id',$id)->first()->image;
+            $filename = Event::where('id', $id)->first()->image;
         }
 
         $event = Event::find($id);
@@ -203,10 +200,9 @@ class EventController extends Controller
         $event->doorman = $request->doorman;
         $event->image = $filename;
 
-
         $event->save();
 
-        return redirect('/event/show/'.$id)->with('status', 'Event Updated!');
+        return redirect('/event/show/' . $id)->with('status', 'Event Updated!');
     }
 
     /**
@@ -218,12 +214,18 @@ class EventController extends Controller
     public function destroy($id)
     {
         $user = Auth()->user()->id;
-        $event = Event::where('id',$id)->first();
+        $event = Event::where('id', $id)->first();
 
-        if ( $event->owner == $user || Admin::where('user_id',$user)->first() ) {
+        if ($event->owner == $user || Admin::where('user_id', $user)->first()) {
 
             $event = Event::find($id);
             $event->delete();
+
+            if (Admin::where('user_id', $user)->first()) {
+
+                return redirect('/admin')->with('status', 'Event Deleted!');
+
+            }
 
             return redirect('/host')->with('status', 'Event Deleted!');
 
@@ -235,46 +237,45 @@ class EventController extends Controller
 
     }
 
-    public function send_invitation ($id)
+    public function send_invitation($id)
     {
         $user = Auth()->user()->id;
-        $event = Event::where('id',$id)->first();
+        $event = Event::where('id', $id)->first();
 
-        if ( $event->owner == $user ) {
+        if ($event->owner == $user) {
 
-        $recipints = Attendant::where('event_id',$id)->get();
+            $recipints = Attendant::where('event_id', $id)->get();
 
-        foreach ($recipints as $recipint) {
-        Mail::to($recipint)->send(new SendInvitation($event,$recipint));
+            foreach ($recipints as $recipint) {
+                Mail::to($recipint)->send(new SendInvitation($event, $recipint));
             }
 
-        return redirect('/event/show/'.$id)->with('status','Invitations sent by email');
+            return redirect('/event/show/' . $id)->with('status', 'Invitations sent by email');
 
         } else {
 
-        return back()->with('error','Not authorized to send invitations');
-
+            return back()->with('error', 'Not authorized to send invitations');
 
         }
 
     }
 
-    public function assign_doorman ($id)
+    public function assign_doorman($id)
     {
         $user = Auth()->user()->id;
-        $event = Event::where('id',$id)->first();
+        $event = Event::where('id', $id)->first();
 
-        if ( $event->owner == $user ) {
+        if ($event->owner == $user) {
 
-        $recipint = User::where('id',$event->doorman)->first();
+            $recipint = User::where('id', $event->doorman)->first();
 
-        Mail::to($recipint)->send(new AssignDoorman($event,$recipint));
+            Mail::to($recipint)->send(new AssignDoorman($event, $recipint));
 
-        return redirect('/event/show/'.$id)->with('status',"Asigment sent to doorman's email");
+            return redirect('/event/show/' . $id)->with('status', "Asigment sent to doorman's email");
 
         } else {
 
-        return back()->with('error','Not authorized to send invitations');
+            return back()->with('error', 'Not authorized to send invitations');
 
         }
 
