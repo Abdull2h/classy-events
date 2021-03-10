@@ -175,11 +175,8 @@
                                         <i class="bi bi-bookmark-star text-light h1"></i>
                                     </div>
                                 </div>
-                                <div class="progress mt-1 mb-0" style="height: 7px; background-color: lightgrey">
-                                    <div class="progress-bar bg-b" role="progressbar"
-                                        style="width: {{ (App\Models\Event::where('owner', $active_host->id)->count() / App\Models\Event::count()) * 100 }}%"
-                                        aria-valuenow="{{ (App\Models\Event::where('owner', $active_host->id)->count() / App\Models\Event::count()) * 100 }}"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="small">
+                                    Creates {{ App\Models\Event::where('owner', $active_host->id)->count() }} Events.
                                 </div>
                             </div>
                         </div>
@@ -205,12 +202,9 @@
                                         <i class="bi bi-award text-light h1"></i>
                                     </div>
                                 </div>
-                                <div class="progress mt-1 mb-0" style="height: 7px; background-color: lightgrey">
-                                    <div class="progress-bar bg-b" role="progressbar"
-                                        style="width: {{ (App\Models\Event::where('doorman', $active_doorman->id)->count() / App\Models\Event::count()) * 100 }}%"
-                                        aria-valuenow="{{ (App\Models\Event::where('doorman', $active_doorman->id)->count() / App\Models\Event::count()) * 100 }}"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <div class="small">
+                                    Assigned to {{ App\Models\Event::where('doorman', $active_doorman->id)->count() }}
+                                    Events.</div>
                             </div>
                         </div>
                     </div>
@@ -230,21 +224,17 @@
                                         <a href="/event/show/{{ $active_event->id }}">
                                             <h4 class="text-light">Show Event Page</h4>
                                         </a>
-                                        <small class="primary">Attendants:
-                                            {{ App\Models\Attendant::where('event_id', $active_event->id)->count() }}</small><br>
+                                        <small class="primary">Date: {{ $active_event->date }} Time:
+                                            {{ $active_event->time }}</small><br>
                                         <span>Most Event Has Attendants</span>
                                     </div>
                                     <div class="align-self-center">
                                         <i class="bi bi-diagram-3 text-light h1"></i>
                                     </div>
                                 </div>
-                                <div class="progress mt-1 mb-0" style="height: 7px; background-color: lightgrey">
-                                    <div class="progress-bar bg-b" role="progressbar"
-                                        style="width: {{ (App\Models\Attendant::where('event_id', $active_event->id)->count() / App\Models\Attendant::count()) * 100 }}%"
-                                        aria-valuenow="{{ (App\Models\Attendant::where('event_id', $active_event->id)->count() / App\Models\Attendant::count()) * 100 }}"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-
+                                <div class="small">
+                                    Has {{ App\Models\Attendant::where('event_id', $active_event->id)->count() }}
+                                    Attendants</div>
                             </div>
                         </div>
                     </div>
