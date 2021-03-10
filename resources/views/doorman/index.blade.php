@@ -19,7 +19,7 @@
                         <div class="card mb-3 mx-auto border" style="max-width: 540px; max-height: 500px;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="public/images/{{ $t_event->image }}" alt="..."
+                                    <img src="{{ url('storage/public/images/' . $t_event->image) }}"
                                         style="max-height: 200px; max-width: 200px;">
                                 </div>
                                 <div class="col-md-8">
@@ -68,7 +68,7 @@
                         <div class="card mb-3 mx-auto border" style="max-width: 540px; max-height: 500px;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="public/images/{{ $f_event->image }}" alt="..."
+                                    <img src="{{ url('storage/public/images/' . $f_event->image) }}"
                                         style="max-height: 200px; max-width: 200px;">
                                 </div>
                                 <div class="col-md-8">
@@ -117,7 +117,7 @@
                         <div class="card mb-3 mx-auto border" style="max-width: 540px; max-height: 500px;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="public/images/{{ $p_event->image }}" alt="..."
+                                    <img src="{{ url('storage/public/images/' . $p_event->image) }}"
                                         style="max-height: 200px; max-width: 200px;">
                                 </div>
                                 <div class="col-md-8">

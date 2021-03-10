@@ -16,7 +16,8 @@
                     <li class="list-group-item w-25 d-flex align-items-center">
                         <strong>Event Image</strong>
                     </li>
-                    <li class="list-group-item w-75 text-center"><img src="/public/images/{{ $event->image }}" alt="..."
+                    <li class="list-group-item w-75 text-center"><img
+                            src="{{ url('storage/public/images/' . $event->image) }}"
                             style="max-height: 300px; max-width: 300px;">
                     </li>
                 </ul>
