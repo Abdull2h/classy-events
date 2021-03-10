@@ -13,7 +13,8 @@ Dear {{ $recipint->name }}
 | Time |  {{ $event->time }} |
 | Location |  {{ $event->location }} |
 | Description |  {{ $event->description }} |
-| Image |  http://classy-events.test/public/images/{{ $event->image }} |
+| Image Link |  {{ url('storage/public/images/' . $event->image) }} |
+| Image  | ![event image]({{ url('storage/public/images/' . $event->image) }}) |
 | Owner Name |  {{ App\Models\User::where('id', $event->owner)->first()->name }} |
 | Owner Email |  {{ App\Models\User::where('id', $event->owner)->first()->email }} |
 @endcomponent
