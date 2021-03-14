@@ -63,12 +63,15 @@
         .about {
             border-top-right-radius: 50% 30%;
             border-bottom-left-radius: 50% 30%;
-
             background-image: repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(225deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(157.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(255, 255, 255, 0.01568627450980392) 0px, rgba(255, 255, 255, 0.01568627450980392) 1px, transparent 1px, transparent 12px), linear-gradient(180deg, rgb(43, 77, 130), rgb(40, 144, 172));
         }
 
         .contact {
             background-image: linear-gradient(90deg, #2b4d82, #2890ac);
+        }
+
+        .b-b {
+            border-bottom: 3px solid #2890ac;
         }
 
         .a {
@@ -112,43 +115,13 @@
                 </div>
             </div>
             <!-- End of First row-->
-            <script>
-                $(document).ready(function(){
-                  // Add scrollspy to <body>
-                  $('body').scrollspy({target: ".navbar", offset: 50});   
-                
-                  // Add smooth scrolling on all links inside the navbar
-                  $("#navbarSupportedContent a").on('click', function(event) {
-                    // Make sure this.hash has a value before overriding default behavior
-                    if (this.hash !== "") {
-                      // Prevent default anchor click behavior
-                      event.preventDefault();
-                
-                      // Store hash
-                      var hash = this.hash;
-                
-                      // Using jQuery's animate() method to add smooth page scroll
-                      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                      $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                      }, 800, function(){
-                   
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                      });
-                    }  // End if
-                  });
-                });
-                </script>
 
             <!-- Second row -->
             <div class="container py-3">
                 <div class="row text-light text-center justify-content-center align-items-center mt-2">
                     <div class="col-md-4 d-flex flex-column bd-highlight px-5 py-2">
                         <div class="h1">Classy Events</div>
-                        <div class="h6">Event managment system that
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, non!
-                        </div>
+                        <div class="h6">Event Managment System</div>
                     </div>
                     <div class="col-md-4 d-flex flex-column bd-highlight px-5 py-2">
                         <a href="{{ route('register') }}"><span type="button"
@@ -164,7 +137,7 @@
         <!-- End Of Header Section -->
 
         <!-- Features Section-->
-        <section class="features mt-2" id="features">
+        <section class="features mt-5" id="features">
             <div class="container mt-4">
                 <!-- First row of Features -->
                 <div class="row">
@@ -173,38 +146,41 @@
                     </div>
                 </div>
                 <!-- Second row of Features -->
-                <div class="row text-center justify-content-center align-items-start">
+                <div class="row text-center justify-content-center align-items-start mb-5 mt-2">
                     <!-- First Feature -->
                     <div class="card m-3" style="width: 18rem;">
-                        <img src="https://image.flaticon.com/icons/png/512/122/122921.png" class="card-img-top m-auto"
-                            style="width:150px; height:150px;" alt="...">
+                        <img src="{{ url('storage/public/images/tag.png') }}"
+                            class="card-img-top border border-info rounded-pill m-auto"
+                            style="width:150px; height:150px;">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            <h5 class="card-title mx-5 b-b">Save Money</h5>
+                            <p class="card-text text-justify">Some quick example text to build on the card title and
+                                make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-outline-primary rounded-pill">Go somewhere</a>
                         </div>
                     </div>
                     <!-- Second Feature -->
                     <div class="card m-3" style="width: 18rem;">
-                        <img src="https://image.flaticon.com/icons/png/512/122/122921.png" class="card-img-top m-auto"
-                            style="width:150px; height:150px;" alt="...">
+                        <img src="{{ url('storage/public/images/plant.png') }}"
+                            class="card-img-top border border-info rounded-pill m-auto"
+                            style="width:150px; height:150px;">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            <h5 class="card-title mx-5 b-b">Save Earth</h5>
+                            <p class="card-text text-justify">Some quick example text to build on the card title and
+                                make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-outline-primary rounded-pill">Go somewhere</a>
                         </div>
                     </div>
                     <!-- Third Feature -->
                     <div class="card m-3" style="width: 18rem;">
-                        <img src="https://image.flaticon.com/icons/png/512/122/122921.png" class="card-img-top m-auto"
+                        <img src="{{ url('storage/public/images/time.png') }}"
+                            class="card-img-top border border-info rounded-pill m-auto"
                             style="width:150px; height:150px;">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            <h5 class="card-title mx-5 b-b">Save Time</h5>
+                            <p class="card-text text-justify">Some quick example text to build on the card title and
+                                make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-outline-primary rounded-pill">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -218,18 +194,16 @@
         <section class="about" id="about">
             <div class="container">
                 <!-- First row of About -->
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center" style="height: 300px;">
 
                     <div class="col-md-3 m-5">
                         <div class="h1 text-center text-light">About Us</div>
                     </div>
                     <div class="col-md-5 m-5">
-                        <p class="text-light text-justify">Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit.
-                            Earum harum esse quo quod! Similique minima dolorem quibusdam quaerat culpa a voluptatibus
-                            possimus error, temporibus officia accusamus illo incidunt eaque repellendus nemo autem
-                            maxime explicabo. Corporis voluptatem cumque enim! Exercitationem quos rem excepturi a sequi
-                            accusamus fugiat, vero esse ipsum labore!
+                        <p class="text-light text-justify">Classy Event is an event management system built as a
+                            graduation project by the group of Abdullah Bajaber, Ahmed Abolaban, and Amro Bassbrain. The
+                            system was build using PHP Laravel framework and Mysql database. It was submitted on Spring
+                            2021.
                         </p>
                     </div>
                 </div>
@@ -241,32 +215,62 @@
         <section class="team mt-2" id="team">
             <div class="container mt-4">
                 <!-- First row of Team -->
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-md-12">
                         <div class="h1 text-center text-primary">Our Team</div>
                     </div>
                 </div>
                 <!-- Second row of Team -->
-                <div class="row text-center justify-content-center align-items-start">
+                <div class="row text-center justify-content-center align-items-start mb-5 mt-2">
                     <!-- First Team -->
-                    <div class="card m-3" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ url('storage/public/images/productivity.png') }}"
+                            class="card-img-top border border-info rounded-pill m-auto p-1"
+                            style="width:100px; height:100px;">
                         <div class="card-body">
-                            <h5 class="card-title">Abdullah Bajaber</h5>
-                            <p class="card-text">CEO</p>
+                            <h5 class="card-title">Amro Bassbrain</h5>
+                            <p class="card-text">Member</p>
+                            <i class="bi bi-linkedin m-1"></i><small class=" m-2"><a
+                                    class="text-decoration-none text-muted text-info" href="https://www.google.com"
+                                    target="_blank">/Amro_Bassbrain</a></small><br>
+                            <i class="bi bi-github m-1"></i><small class=" m-2"><a
+                                    class="text-decoration-none text-muted text-info" href="https://www.google.com"
+                                    target="_blank">/Amro_Bassbrain</a></small>
+
                         </div>
                     </div>
                     <!-- Second Team -->
-                    <div class="card m-3" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ url('storage/public/images/team.png') }}"
+                            class="card-img-top border border-info rounded-pill m-auto p-1"
+                            style="width:100px; height:100px;">
                         <div class="card-body">
                             <h5 class="card-title">Abdullah Bajaber</h5>
-                            <p class="card-text">CEO</p>
+                            <p class="card-text">Leader</p>
+                            <i class="bi bi-linkedin m-1"></i><small class=" m-2"><a
+                                    class="text-decoration-none text-muted text-info" href="https://www.google.com"
+                                    target="_blank">/Abdullah_bajaber</a></small><br>
+                            <i class="bi bi-github m-1"></i><small class=" m-2"><a
+                                    class="text-decoration-none text-muted text-info" href="https://www.google.com"
+                                    target="_blank">/Abdullah_bajaber</a></small>
+
                         </div>
                     </div>
                     <!-- Third Team -->
-                    <div class="card m-3" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ url('storage/public/images/productivity.png') }}"
+                            class="card-img-top border border-info rounded-pill m-auto p-1"
+                            style="width:100px; height:100px;">
                         <div class="card-body">
-                            <h5 class="card-title">Abdullah Bajaber</h5>
-                            <p class="card-text">CEO</p>
+                            <h5 class="card-title">Ahmad Abolaban</h5>
+                            <p class="card-text">Member</p>
+                            <i class="bi bi-linkedin m-1"></i><small class=" m-2"><a
+                                    class="text-decoration-none text-muted text-info" href="https://www.google.com"
+                                    target="_blank">/Ahmad_abolaban</a></small><br>
+                            <i class="bi bi-github m-1"></i><small class=" m-2"><a
+                                    class="text-decoration-none text-muted text-info" href="https://www.google.com"
+                                    target="_blank">/Ahmad_abolaban</a></small>
+
                         </div>
                     </div>
                 </div>
@@ -318,16 +322,52 @@
                     </div>
                 </div>
             </div>
-            <!-- TEST Dividors -->
+
+            <!-- Dividor -->
             <svg class="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 279.24" preserveAspectRatio="none">
                 <path class="b" d="M1000 0S331.54-4.18 0 279.24h1000z" opacity=".25" />
                 <path class="b" d="M1000 279.24s-339.56-44.3-522.95-109.6S132.86 23.76 0 25.15v254.09z" />
             </svg>
             <!-- End of dividor -->
 
+
+
         </section>
         <!-- End of Contact section -->
 
+        <!-- Scroll down slowly script -->
+        <script>
+            $(document).ready(function() {
+                // Add scrollspy to <body>
+                $('body').scrollspy({
+                    target: ".navbar",
+                    offset: 50
+                });
+
+                // Add smooth scrolling on all links inside the navbar
+                $("#navbarSupportedContent a").on('click', function(event) {
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+
+                        // Store hash
+                        var hash = this.hash;
+
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 800, function() {
+
+                            // Add hash (#) to URL when done scrolling (default click behavior)
+                            window.location.hash = hash;
+                        });
+                    } // End if
+                });
+            });
+
+        </script>
 
     </div>
     <!-- End Of App -->
